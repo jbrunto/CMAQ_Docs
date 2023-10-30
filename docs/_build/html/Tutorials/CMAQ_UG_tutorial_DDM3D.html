@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CMAQ-DDM3D Benchmark Tutorial &#8212; CMAQ Critical Documentation 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=514cf933" />
+    
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CMAQ Critical Documentation 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CMAQ-DDM3D Benchmark Tutorial</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="cmaq-ddm3d-benchmark-tutorial">
+<h1>CMAQ-DDM3D Benchmark Tutorial<a class="headerlink" href="#cmaq-ddm3d-benchmark-tutorial" title="Link to this heading">¶</a></h1>
+<section id="procedure-to-build-and-run-the-cmaq-ddm3d-model-using-gnu-compiler">
+<h2>Procedure to build and run the CMAQ-DDM3D model using gnu compiler:<a class="headerlink" href="#procedure-to-build-and-run-the-cmaq-ddm3d-model-using-gnu-compiler" title="Link to this heading">¶</a></h2>
+</section>
+<section id="step-1-download-and-run-the-cmaqv5-4-benchmark-case-without-ddm3d-to-confirm-that-your-model-run-is-consistent-with-the-provided-benchmark-output">
+<h2>Step 1: Download and run the CMAQv5.4 benchmark case (without DDM3D) to confirm that your model run is consistent with the provided benchmark output.<a class="headerlink" href="#step-1-download-and-run-the-cmaqv5-4-benchmark-case-without-ddm3d-to-confirm-that-your-model-run-is-consistent-with-the-provided-benchmark-output" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="CMAQ_UG_tutorial_benchmark.html"><span class="std std-doc">CMAQ Benchmark Tutorial</span></a></p></li>
+</ul>
+<p>If you encounter any errors, try running the model in debug mode and refer to the CMAS User Forum to determine if any issues have been reported.</p>
+<p>https://forum.cmascenter.org/</p>
+</section>
+<section id="step-2-read-the-user-guide-chapter-on-the-decoupled-direct-method-in-three-dimensions">
+<h2>Step 2: Read the User Guide Chapter on the Decoupled Direct Method in Three Dimensions<a class="headerlink" href="#step-2-read-the-user-guide-chapter-on-the-decoupled-direct-method-in-three-dimensions" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../CMAQ_UG_ch10_HDDM-3D.html"><span class="std std-doc">CMAQ User’s Guide Chapter on DDM-3D</span></a></p></li>
+</ul>
+<p>Note: This benchmark is intended to demonstrate how to build and run CMAQ-DDM-3D with the provided input files:</p>
+<p>The following  control file is provided in the CCTM/scripts directory when you obtain the CMAQv5.4 code from github (step 5 below):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sensinput</span><span class="mf">.2018_12</span><span class="n">NE3</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+<p>The following gridmask file is provided with the benchmark inputs in the 2018_12NE3_BENCH/2018_12NE3 directory (see step 10 below)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GRIDMASK_STATES_12NE3</span><span class="o">.</span><span class="n">nc</span>
+</pre></div>
+</div>
+<p>The instructions require the user to edit the DESID emissions control namelist file in the BLD directory (see step 9 below).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CMAQ_Control_DESID</span><span class="o">.</span><span class="n">nml</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-optional-choose-your-compiler-and-load-it-using-the-module-command-if-it-is-available-on-your-system">
+<h2>Step 3 (optional): choose your compiler, and load it using the module command if it is available on your system<a class="headerlink" href="#step-3-optional-choose-your-compiler-and-load-it-using-the-module-command-if-it-is-available-on-your-system" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">avail</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">openmpi_4</span><span class="mf">.0.1</span><span class="o">/</span><span class="n">gcc_9</span><span class="mf">.1.0</span> 
+</pre></div>
+</div>
+</section>
+<section id="step-4-optional-install-i-o-api-note-this-assumes-you-have-already-installed-netcdf-c-and-fortran-libraries">
+<h2>Step 4 (optional): Install I/O API (note, this assumes you have already installed netCDF C and Fortran Libraries)<a class="headerlink" href="#step-4-optional-install-i-o-api-note-this-assumes-you-have-already-installed-netcdf-c-and-fortran-libraries" title="Link to this heading">¶</a></h2>
+<p>I/O APIv3.2 supports up to MXFILE3=256 open files, each with up to MXVARS3=2048. DDM-3D applications configured to calculate sensitivities to a large number of parameters may exceed this upper limit of model variables, leading to a model crash. To avoid this issue, users may use I/O API version 3.2 “large” that increases MXFILE3 to 512 and MXVARS3 to 16384. Instructions to build this version are found in Chapter 3. Note, using this ioapi-large version is <b>NOT REQUIRED</b> for the CMAQ-DDM Benchmark Case. If a user needs to use these larger setting for MXFILE3 and MXVAR3 to support their application, the memory requirements will be increased. If needed, this version is available as a zip file from the following address:</p>
+<p>https://www.cmascenter.org/ioapi/download/ioapi-3.2-large-20200828.tar.gz</p>
+<p>Otherwise, use the I/O API version available here:
+https://www.cmascenter.org/ioapi/download/ioapi-3.2-20200828.tar.gz</p>
+</section>
+<section id="step-5-install-cmaq-with-ddm-3d">
+<h2>Step 5: Install CMAQ with DDM-3D<a class="headerlink" href="#step-5-install-cmaq-with-ddm-3d" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">-</span><span class="n">b</span> <span class="n">main</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">USEPA</span><span class="o">/</span><span class="n">CMAQ</span><span class="o">.</span><span class="n">git</span> <span class="n">CMAQ_REPO</span>
+</pre></div>
+</div>
+<p>Build and run in a user-specified directory outside of the repository</p>
+<p>In the top level of CMAQ_REPO, the bldit_project.csh script will automatically replicate the CMAQ folder structure and copy every build and run script out of the repository so that you may modify them freely without version control.</p>
+<p>Edit bldit_project.csh, to modify the variable $CMAQ_HOME to identify the folder that you would like to install the CMAQ package under. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">CMAQ_HOME</span> <span class="o">=</span> <span class="p">[</span><span class="n">your_install_path</span><span class="p">]</span><span class="o">/</span><span class="n">CMAQ_v5</span><span class="mf">.4</span>
+</pre></div>
+</div>
+<p>Now execute the script.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">bldit_project</span><span class="o">.</span><span class="n">csh</span>
+</pre></div>
+</div>
+<p>Change directories to the CMAQ_HOME directory</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">[</span><span class="n">your_install_path</span><span class="p">]</span><span class="o">/</span><span class="n">CMAQ_v5</span><span class="mf">.4</span>
+</pre></div>
+</div>
+</section>
+<section id="step-6-edit-the-config-cmaq-csh-to-specify-the-paths-of-the-ioapi-and-netcdf-libraries">
+<h2>Step 6. Edit the config_cmaq.csh to specify the paths of the ioapi and netCDF libraries<a class="headerlink" href="#step-6-edit-the-config-cmaq-csh-to-specify-the-paths-of-the-ioapi-and-netcdf-libraries" title="Link to this heading">¶</a></h2>
+</section>
+<section id="step-7-modify-the-bldit-cctm-csh">
+<h2>Step 7: Modify the bldit_cctm.csh<a class="headerlink" href="#step-7-modify-the-bldit-cctm-csh" title="Link to this heading">¶</a></h2>
+<p>Change directory to CCTM/scripts</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">CCTM</span><span class="o">/</span><span class="n">scripts</span>
+</pre></div>
+</div>
+<p>Comment out the following option to compile CCTM with DDM-3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">DDM3D_CCTM</span>                        <span class="c1">#&gt; uncomment to compile CCTM with DD3D activated</span>
+</pre></div>
+</div>
+</section>
+<section id="step-8-run-the-bldit-cctm-csh-script">
+<h2>Step 8: Run the bldit_cctm.csh script<a class="headerlink" href="#step-8-run-the-bldit-cctm-csh-script" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">bldit_cctm</span><span class="o">.</span><span class="n">csh</span> <span class="n">gcc</span> <span class="o">|&amp;</span> <span class="n">tee</span> <span class="n">bldit_cctm_ddm3d</span><span class="o">.</span><span class="n">log</span>
+</pre></div>
+</div>
+</section>
+<section id="step-9-edit-the-emission-control-namelist-to-recognize-the-cmaq-regions-file">
+<h2>Step 9: Edit the Emission Control Namelist to recognize the CMAQ_REGIONS file<a class="headerlink" href="#step-9-edit-the-emission-control-namelist-to-recognize-the-cmaq-regions-file" title="Link to this heading">¶</a></h2>
+<p>Change directories to the build directory</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">BLD_CCTM_v54_DDM3D_gcc</span>
+</pre></div>
+</div>
+<p>edit the Control_DESID namelist file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gedit</span> <span class="n">CMAQ_Control_DESID</span><span class="o">.</span><span class="n">nml</span>
+</pre></div>
+</div>
+<p>Add the Regions to the &amp;Desid_RegionDef section of the control DESID namelist.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&amp;Desid_RegionDef
+ Desid_Reg_nml  =
+ !            Region Label   | File_Label  | Variable on File
+               &#39;EVERYWHERE&#39;  ,&#39;N/A&#39;        ,&#39;N/A&#39;,
+                &#39;PA&#39;        ,&#39;CMAQ_MASKS&#39;        , &#39;PA&#39;,
+                &#39;NJ&#39;        ,&#39;CMAQ_MASKS&#39;        , &#39;NJ&#39;,
+</pre></div>
+</div>
+</section>
+<section id="step-10-install-the-cmaq-ddm-3d-reference-input-and-output-benchmark-data">
+<h2>Step 10: Install the CMAQ-DDM-3D reference input and output benchmark data<a class="headerlink" href="#step-10-install-the-cmaq-ddm-3d-reference-input-and-output-benchmark-data" title="Link to this heading">¶</a></h2>
+<p>Download the CMAQ two day reference input and output data from the [CMAS Center Data Warehouse Google Drive](<a class="reference external" href="https://drive.google.com/drive/folders/1AFUB-4kzIXXoZr4hOHNBqRvy9JQ9_MDp?usp=sharing">https://drive.google.com/file/d/1AFUB-4kzIXXoZr4hOHNBqRvy9JQ9_MDp/view?usp=sharing</a>. The CMAQ benchmark test case is a two day simulation for July 1-2 2018 on a 100 column x 105 row x 35 layer 12-km resolution domain over the northeast U.S.</p>
+<ul class="simple">
+<li><p>Use the gdrive command to download the dataset.</p></li>
+<li><p>If this is the first time that you are using gdrive, or if you have an issue with your token, please read the following instructions</p></li>
+<li><p><a class="reference external" href="https://docs.google.com/document/d/1e7B94zFkbKygVWfrhGwEZL51jF4fGXGXZbvi6KzXYQ4">Tips to download data from CMAS Data Warehouse</a></p></li>
+<li><p>Text files are included that provide a list of the files in the benchmark input and output datasets.</p></li>
+</ul>
+<p>The benchmark data is also available from the <a class="reference external" href="https://cmas-cmaq.s3.amazonaws.com/index.html">CMAS Center Data Warehouse Amazon Web Services S3 Bucket</a>.</p>
+<p>Copy the data to <code class="docutils literal notranslate"><span class="pre">$CMAQ_DATA</span></code>. Navigate to the <code class="docutils literal notranslate"><span class="pre">$CMAQ_DATA</span></code> directory, unzip and untar the two day benchmark input and output files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $CMAQ_DATA
+tar xvzf CMAQv5.4_2018_12NE3_Benchmark_2Day_Input.tar.gz
+tar xvzf CMAQv5.4_2018_12NE3_Benchmark_2Day_Output.tar.gz
+</pre></div>
+</div>
+<p>The input files for the CMAQv5.4 DDM-3D benchmark case are the same as the benchmark inputs for the base model. Output DDM files associated with the sample DDM control file sensinput.2018_12NE3.dat provided in this release package are included in the benchmark outputs for the base model.</p>
+</section>
+<section id="step-11-edit-the-cmaq-ddm3d-runscript">
+<h2>Step 11: Edit the CMAQ-DDM3D runscript<a class="headerlink" href="#step-11-edit-the-cmaq-ddm3d-runscript" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">run_cctm_Bench_2018_12NE3</span><span class="o">.</span><span class="n">csh</span> <span class="n">run_cctm_Bench_2018_12NE3_DDM3D</span><span class="o">.</span><span class="n">csh</span>
+<span class="n">gedit</span> <span class="n">run_cctm_Bench_2018_12NE3_DDM3D</span><span class="o">.</span><span class="n">csh</span>
+</pre></div>
+</div>
+<p>Set General Parameters for Configuring the Simulation</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="nb">set</span> <span class="n">VRSN</span>      <span class="o">=</span> <span class="n">v54_DDM3D</span>
+</pre></div>
+</div>
+<p>Turn on DDM3D and uncomment SEN_INPUT file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> setenv CTM_DDM3D Y  
+ setenv SEN_INPUT ${WORKDIR}/sensinput.2018_12NE3.dat
+ set NPMAX    = 2      # Number of sensitivity parameters defined in SEN_INPUT
+</pre></div>
+</div>
+<p>Run or Submit the script to the batch queueing system</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">run_cctm_Bench_2018_12NE3_DDM3D</span><span class="o">.</span><span class="n">csh</span>
+</pre></div>
+</div>
+<p>OR (If using SLRUM)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">run_cctm_Bench_2018_12NE3_DDM3D</span><span class="o">.</span><span class="n">csh</span>
+</pre></div>
+</div>
+</section>
+<section id="step-12-verify-that-the-run-was-successful">
+<h2>Step 12: Verify that the run was successful<a class="headerlink" href="#step-12-verify-that-the-run-was-successful" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>look for the output directory</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../../</span><span class="n">data</span><span class="o">/</span><span class="mi">2018_12</span><span class="n">NE3_BENCH</span><span class="o">/</span><span class="n">output_CCTM_v54_DDM3D_gcc_Bench_2018_12NE3_2day</span>
+</pre></div>
+</div>
+<p>If the run was successful you will see the following output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tail</span> <span class="o">./</span><span class="n">LOGS</span><span class="o">/</span><span class="n">CTM_LOG_000</span><span class="o">.</span><span class="n">v54_DDM3D_gcc_Bench_2018_12NE3_2day_20180702</span>
+</pre></div>
+</div>
+<p>|&gt;—   PROGRAM COMPLETED SUCCESSFULLY   —&lt;|</p>
+</section>
+<section id="step-13-compare-output-with-the-2-day-benchmark-outputs-provided-on-the-google-drive">
+<h2>Step 13: Compare output with the 2 day benchmark outputs provided on the google drive<a class="headerlink" href="#step-13-compare-output-with-the-2-day-benchmark-outputs-provided-on-the-google-drive" title="Link to this heading">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://drive.google.com/drive/u/1/folders/
+
+Note, the following DDM-3D output files are generated in addition to the standard CMAQ output files.
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CCTM_SENDDEP_v54_DDM3D_gcc_Bench_2018_12NE3_2day_20180702</span><span class="o">.</span><span class="n">nc</span>
+<span class="n">CCTM_SENWDEP_v54_DDM3D_gcc_Bench_2018_12NE3_2day_20180702</span><span class="o">.</span><span class="n">nc</span>
+<span class="n">CCTM_SENGRID_v54_DDM3D_gcc_Bench_2018_12NE3_2day_20180702</span><span class="o">.</span><span class="n">nc</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">CMAQ-DDM3D Benchmark Tutorial</a><ul>
+<li><a class="reference internal" href="#procedure-to-build-and-run-the-cmaq-ddm3d-model-using-gnu-compiler">Procedure to build and run the CMAQ-DDM3D model using gnu compiler:</a></li>
+<li><a class="reference internal" href="#step-1-download-and-run-the-cmaqv5-4-benchmark-case-without-ddm3d-to-confirm-that-your-model-run-is-consistent-with-the-provided-benchmark-output">Step 1: Download and run the CMAQv5.4 benchmark case (without DDM3D) to confirm that your model run is consistent with the provided benchmark output.</a></li>
+<li><a class="reference internal" href="#step-2-read-the-user-guide-chapter-on-the-decoupled-direct-method-in-three-dimensions">Step 2: Read the User Guide Chapter on the Decoupled Direct Method in Three Dimensions</a></li>
+<li><a class="reference internal" href="#step-3-optional-choose-your-compiler-and-load-it-using-the-module-command-if-it-is-available-on-your-system">Step 3 (optional): choose your compiler, and load it using the module command if it is available on your system</a></li>
+<li><a class="reference internal" href="#step-4-optional-install-i-o-api-note-this-assumes-you-have-already-installed-netcdf-c-and-fortran-libraries">Step 4 (optional): Install I/O API (note, this assumes you have already installed netCDF C and Fortran Libraries)</a></li>
+<li><a class="reference internal" href="#step-5-install-cmaq-with-ddm-3d">Step 5: Install CMAQ with DDM-3D</a></li>
+<li><a class="reference internal" href="#step-6-edit-the-config-cmaq-csh-to-specify-the-paths-of-the-ioapi-and-netcdf-libraries">Step 6. Edit the config_cmaq.csh to specify the paths of the ioapi and netCDF libraries</a></li>
+<li><a class="reference internal" href="#step-7-modify-the-bldit-cctm-csh">Step 7: Modify the bldit_cctm.csh</a></li>
+<li><a class="reference internal" href="#step-8-run-the-bldit-cctm-csh-script">Step 8: Run the bldit_cctm.csh script</a></li>
+<li><a class="reference internal" href="#step-9-edit-the-emission-control-namelist-to-recognize-the-cmaq-regions-file">Step 9: Edit the Emission Control Namelist to recognize the CMAQ_REGIONS file</a></li>
+<li><a class="reference internal" href="#step-10-install-the-cmaq-ddm-3d-reference-input-and-output-benchmark-data">Step 10: Install the CMAQ-DDM-3D reference input and output benchmark data</a></li>
+<li><a class="reference internal" href="#step-11-edit-the-cmaq-ddm3d-runscript">Step 11: Edit the CMAQ-DDM3D runscript</a></li>
+<li><a class="reference internal" href="#step-12-verify-that-the-run-was-successful">Step 12: Verify that the run was successful</a></li>
+<li><a class="reference internal" href="#step-13-compare-output-with-the-2-day-benchmark-outputs-provided-on-the-google-drive">Step 13: Compare output with the 2 day benchmark outputs provided on the google drive</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Tutorials/CMAQ_UG_tutorial_DDM3D.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CMAQ Critical Documentation 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CMAQ-DDM3D Benchmark Tutorial</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, JBrunton.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+  </body>
+</html>
