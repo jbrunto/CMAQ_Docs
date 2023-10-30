@@ -15,7 +15,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MIT License" href="license.html" />
+    <link rel="next" title="Developers’ Guide for the Community Multiscale Air Quality (CMAQ) Modeling System" href="CMAQ_Dev_Guide.html" />
     <link rel="prev" title="CMAQ User’s Guide" href="UG_README.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -25,7 +25,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="license.html" title="MIT License"
+          <a href="CMAQ_Dev_Guide.html" title="Developers’ Guide for the Community Multiscale Air Quality (CMAQ) Modeling System"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="UG_README.html" title="CMAQ User’s Guide"
@@ -42,9 +42,65 @@
             
   <section id="cmaq-developer-s-guide">
 <h1>CMAQ Developer’s Guide<a class="headerlink" href="#cmaq-developer-s-guide" title="Link to this heading">¶</a></h1>
-<section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
-</section>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CMAQ_Dev_Guide.html"><strong>Developers’ Guide for the Community Multiscale Air Quality (CMAQ) Modeling System</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CMAQ_Dev_Guide.html#disclaimer">Disclaimer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CMAQ_Dev_Guide.html#motivation">Motivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CMAQ_Dev_Guide.html#summary-of-developer-workflow">Summary of Developer Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CMAQ_Dev_Guide.html#development-life-cycle">Development Life-cycle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CMAQ_Dev_Guide.html#public-release-versions">Public Release Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CMAQ_Dev_Guide.html#development-versions">Development Versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CMAQ_Dev_Guide.html#making-contributions">Making Contributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CMAQ_Dev_Guide.html#get-in-touch">Get in touch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CMAQ_Dev_Guide.html#nuts-and-bolts">Nuts and Bolts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CMAQ_Dev_Guide.html#code-review">Code Review</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CMAQ_Dev_Guide.html#code-consistency">Code Consistency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CMAQ_Dev_Guide.html#benchmark-testing">Benchmark Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CMAQ_Dev_Guide.html#documentation-requirements">Documentation Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CMAQ_Dev_Guide.html#ongoing-support">Ongoing Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CMAQ_Dev_Guide.html#copyright-information">Copyright Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CMAQ_Dev_Guide.html#appendix">Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CMAQ_Dev_Guide.html#appendix-1-compiler-tests">Appendix 1: Compiler Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CMAQ_Dev_Guide.html#compilation-testing-manifest-table-example">Compilation Testing Manifest Table (Example)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CMAQ_Dev_Guide.html#appendix-2-model-performance-test-metadata">Appendix 2: Model Performance Test Metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Code_Management.html">Code Management and Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Code_Management.html#source-code-management">Source Code Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Code_Management.html#the-need-for-a-configuration-management-tool">The need for a configuration-management tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Code_Management.html#choice-of-a-configuration-management-tool">Choice of a configuration-management tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Code_Management.html#git-explained">git Explained</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Code_Management.html#guidelines-for-developing-new-cmaq-source-code">Guidelines for Developing New CMAQ Source Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Code_Management.html#object-oriented-concepts">Object-oriented concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Code_Management.html#global-name-data-table">Global name data table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Code_Management.html#thin-interface">Thin Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Code_Management.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Code_Management.html#documentation-guidelines">Documentation guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Code_Management.html#science-process-code-template">Science process code template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Code_Management.html#compiling-cmaq-with-new-source-code">Compiling CMAQ with New Source Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Code_Management.html#guidelines-to-writing-shell-scripts-for-cmaq">Guidelines to Writing Shell Scripts for CMAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Code_Management.html#testing-and-distribution-of-development-source-code">Testing and Distribution of Development Source Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Code_Management.html#references-for-chapter-11-code-management">References for Chapter 11: Code Management</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 
 
@@ -55,24 +111,14 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">CMAQ Developer’s Guide</a><ul>
-<li><a class="reference internal" href="#contents">Contents</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-  <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="UG_README.html"
                           title="previous chapter">CMAQ User’s Guide</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="license.html"
-                          title="next chapter">MIT License</a></p>
+    <p class="topless"><a href="CMAQ_Dev_Guide.html"
+                          title="next chapter"><strong>Developers’ Guide for the Community Multiscale Air Quality (CMAQ) Modeling System</strong></a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -102,7 +148,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="license.html" title="MIT License"
+          <a href="CMAQ_Dev_Guide.html" title="Developers’ Guide for the Community Multiscale Air Quality (CMAQ) Modeling System"
              >next</a> |</li>
         <li class="right" >
           <a href="UG_README.html" title="CMAQ User’s Guide"
