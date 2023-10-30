@@ -6,23 +6,32 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'CMAQ Documentation'
-copyright = '2023, EPA-CMAQ, JBrunton'
-author = 'EPA-CMAQ, JBrunton'
+# These four objects provided with initial setup
+project = "CMAQ Critical Documentation"
+copyright = '2023, JBrunton'
+author = 'JBrunton'
 release = '0.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+# These three objects provided with initial setup - 'myst_parser' added later
+extensions = ['myst_parser']
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = []
 
+# custom provides configuration values
+source_suffix = {
+        '.rst': 'restructuredtext',
+        '.txt': 'restructuredtext',
+        '.md': 'markdown',
+}
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
+# These two objects provided with initial setup
+html_theme = 'classic'
 html_static_path = ['_static']
