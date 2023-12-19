@@ -1,0 +1,48 @@
+********************************************************************************
+Announcing the release of MCIP Version 5.4 (12 September 2022)
+********************************************************************************
+
+The MCIP code's version number is updated to version 5.4. With this release,
+no changes have been made to the MCIP code.  
+
+As implemented with the release of the previous version (v5.3.3), the version 
+numbering for MCIP is kept consistent with CMAQ to minimize confusion within the 
+user community. Therefore, MCIP's version is updated to v5.4 for consistency.  
+
+MCIPv5.4 accompanies CMAQv5.4.  If you are using CMAQv5.3+, you must
+upgrade to use MCIPv5.0+.
+
+MCIPv5.4 requires I/O API version 3.1 or greater to support error-checking
+within the I/O API.
+
+MCIPv5.4 requires the netCDF F90 module (rather than the F77 include).
+
+MCIP can be cited with the following reference:
+
+  Otte, T. L., and J. E. Pleim, 2010.  The Meteorology-Chemistry Interface
+     Processor (MCIP) for the CMAQ modeling system: updates through
+     MCIPv3.4.1.  Geoscientific Model Development, 3, 243-256.
+
+A DOI will also be available for CMAQv5.4 (which includes MCIPv5.4).
+
+
+Background on MCIP and other useful information about the CMAQ system can be
+found online at http://www.epa.gov/cmaq.
+
+Inquiries related to potential bugs in MCIPv5.4 or questions related to
+proper use of the code should be submitted to the MCIP Category in the
+Forum hosted by the CMAS Center:  https://forum.cmascenter.org/c/mcip.
+
+Users are encouraged to read the Frequently Asked Questions (FAQ) file.
+Users should consult the FAQ and other issues raised within the Forum
+before submitting new inquiries.
+
+
+The previous release of MCIP (v5.3.3) was tested with the following Fortran compilers 
+under both debug and optimized options (as shown in the Makefile):
+
+  Intel 19.0.5, netCDF 4.7.4, I/O API 3.2 (downloaded 11 October 2018)
+
+  PGI 19.10, netCDF 4.7.4, I/O API 3.2 (downloaded 28 August 2020)
+
+  GCC 6.1.0, netCDF 4.6.3, I/O API 3.2 (downloaded 11 October 2018)
