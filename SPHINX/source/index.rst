@@ -16,6 +16,8 @@ CMAQ: The Community Multiscale Air Quality Modeling System
 
 
 .. grid:: 1 1 2 2
+        :gutter: 1 1 1 1
+
         .. grid-item-card::
                 :text-align: center
 
