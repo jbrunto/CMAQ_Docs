@@ -36,9 +36,9 @@ source_suffix = {
 import pydata_sphinx_theme
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
-
+html_show_sourcelink = True
 html_sidebars = {
-        '**': ['globaltoc.html']
+        '**': ['localtoc.html', 'sourcelink.html']
         }
 
 
