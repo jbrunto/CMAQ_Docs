@@ -19,6 +19,7 @@ release = '0.1'
 extensions = [
         'myst_parser',
         'sphinx.ext.autodoc',
+        'sphinx.ext.autosectionlabel',
         'sphinx.ext.napoleon',
         'sphinx.ext.viewcode',
         'sphinx.ext.githubpages',
@@ -26,6 +27,7 @@ extensions = [
 #        'sphinx_panels'
         'sphinx_design'
 ]
+myst_enable_extensions = ["colon_fence"]
 
 templates_path = ['_templates']
 exclude_patterns = []
@@ -37,21 +39,13 @@ source_suffix = {
         '.md': 'markdown',
 }
 
-
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
-# These two objects provided with initial setup
 import pydata_sphinx_theme
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
-#html_show_sourcelink = True
-#html_copuy_source = True
 html_sidebars = {
         'index': ['searchbox.html'],
         '**': ['searchbox.html']
         }
-html_sidebars = {}
 
 html_theme_options = {
     "github_url": "https://github.com/USEPA/CMAQ",
@@ -59,9 +53,4 @@ html_theme_options = {
         "image_light": "_static/CMAQ_Logo_2_inch.png",
         "image_dark": "_static/CMAQ_Logo_2_inch.png",
     }
-
-
-
-
-
- }
+}
