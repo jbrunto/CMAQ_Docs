@@ -37,10 +37,11 @@ import pydata_sphinx_theme
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
 html_show_sourcelink = True
-html_sidebars = {
-        '**': ['localtoc.html', 'sourcelink.html']
-        }
-
+html_copuy_source = True
+#html_sidebars = {
+#        '**': ['localtoc.html', 'sourcelink.html']
+#        }
+html_sidebars = {}
 
 html_theme_options = {
     "github_url": "https://github.com/USEPA/CMAQ",
