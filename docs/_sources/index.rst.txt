@@ -16,10 +16,10 @@ CMAQ: The Community Multiscale Air Quality Modeling System
 
 
 .. toctree::        
-   :maxdepth: 3
+   :maxdepth: 5
    :caption: CMAQ User's Guide
 
-   Docs_README.md
-   license.md
+   ./Docs_README.md
+   ./license.md
 
 
