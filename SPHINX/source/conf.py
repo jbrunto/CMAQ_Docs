@@ -36,11 +36,12 @@ source_suffix = {
 import pydata_sphinx_theme
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
-html_show_sourcelink = True
-html_copuy_source = True
-#html_sidebars = {
-#        '**': ['localtoc.html', 'sourcelink.html']
-#        }
+#html_show_sourcelink = True
+#html_copuy_source = True
+html_sidebars = {
+        'index': ['searchbox.html'],
+        '**': ['searchbox.html']
+        }
 html_sidebars = {}
 
 html_theme_options = {
