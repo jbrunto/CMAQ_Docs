@@ -15,10 +15,71 @@ CMAQ: The Community Multiscale Air Quality Modeling System
 
 
 
+.. grid:: 1 1 2 2
+        .. grid-item-card::
+                :text-align: center
+
+                **User's Guide**
+                ^^^
+
+                Instructions on how to set up and run the model and information on CMAQ's different science options and instrumented versions.
+                
+                +++
+                .. button-ref:: ./Users_Guide/README.md
+                        User's Guide
+
+
+
+        .. grid-item-card::
+                :text-align: center
+
+                **Tutorials**
+                ^^^
+
+                Included with the User's Guide, a series of short tutorials provide practical examples of how to set up and run CMAQ, exercise different features in the software, and better understand the software system.
+
+                +++
+                .. button-ref:: ./Users_Guide/Tutorials/README.md
+                        Tutorials
+
+
+        .. grid-item-card::
+                :text-align: center
+
+                **Developer's Guide**
+                ^^^
+
+                A guide to version control practices and expectations adopted by the CMAQ development team and enforced on itself and any other collaborators who wish to contribute code.
+
+                +++
+                .. button-ref:: ./Developers_Guide/CMAQ_Dev_Guide.md
+                        Developer's Guide
+
+
+
+        .. grid-item-card::
+                :text-align: center
+
+                **Release Notes**
+                ^^^
+
+                Technical notes on the new features and science in this release of CMAQ are available on the CMAQ Wiki.
+
+                +++
+                .. button-ref:: <https://github.com/USEPA/CMAQ/wiki/CMAQ-Release-Notes>
+                        Release Notes
+
+
+
+
+
+      
+
+
+
 .. toctree::        
    :maxdepth: 1
-   :titlesonly:
-   :caption: Contents
+   :hidden:
 
    Home <./Docs_README.md>
         User's Guide <./Users_Guide/README.md>
