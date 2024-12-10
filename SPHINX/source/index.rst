@@ -20,9 +20,9 @@ CMAQ: The Community Multiscale Air Quality Modeling System
    :caption: CMAQ User's Guide
 
    ./Docs_README.md
-        Users_Guide/README.md <User's Guide>
-        Users_Guide/Tutorials/README.md <Tutorials>
-        Developers_Guide/CMAQ_Dev_Guide.md <Developer's Guide>
+        User's Guide <./Users_Guide/README.md>
+        Tutorials <./Users_Guide/Tutorials/README.md>
+        Developer's Guide <./Developers_Guide/CMAQ_Dev_Guide.md>
    ./license.md
 
 
