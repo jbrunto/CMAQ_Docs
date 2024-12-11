@@ -14,7 +14,7 @@ release = '0.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
-
+#import sys, os
 # These three objects provided with initial setup - 'myst_parser' added later
 extensions = [
         'myst_parser'
@@ -43,7 +43,7 @@ source_suffix = {
 }
 
 import pydata_sphinx_theme
-html_theme = 'pydata_sphinx_theme'
+html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 #html_sidebars = {
 #        'index': ['searchbox.html'],
