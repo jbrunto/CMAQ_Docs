@@ -19,14 +19,14 @@ release = '0.1'
 extensions = [
         'myst_parser',
 #        'sphinx.ext.autodoc',
-        'sphinx.ext.autosectionlabel',
-        'sphinx.ext.napoleon',
-        'sphinx.ext.viewcode',
-        'sphinx.ext.imgconverter',
+#        'sphinx.ext.autosectionlabel',
+#        'sphinx.ext.napoleon',
+#        'sphinx.ext.viewcode',
+#        'sphinx.ext.imgconverter',
 #        'sphinx.ext.githubpages',
 #        'sphinx_gallery.gen_gallery',
 #        'sphinx_panels'
-        'sphinx_design',
+#        'sphinx_design',
         'sphinx_copybutton'
 ]
 myst_enable_extensions = ["colon_fence", "linkify"]
