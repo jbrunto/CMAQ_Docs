@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -31,7 +31,6 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -39,11 +38,9 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e031e9a9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Users_Guide/CMAQ_UG_ch11_ISAM';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -241,7 +238,7 @@
         
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -328,11 +325,6 @@
     
   </div>
   
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<div id="searchbox"></div></div>
-    </div>
-  
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
@@ -384,9 +376,9 @@
 <p><a class="reference internal" href="CMAQ_UG_ch10_HDDM-3D.html"><span class="std std-doc">&lt;&lt; Previous Chapter</span></a> - <a class="reference internal" href="README.html"><span class="std std-doc">Home</span></a> - <a class="reference internal" href="CMAQ_UG_ch12_sulfur_tracking.html"><span class="std std-doc">Next Chapter &gt;&gt;</span></a></p>
 <!-- END COMMENT -->
 <section id="integrated-source-apportionment-method-cmaq-isam">
-<h1>11. Integrated Source Apportionment Method (CMAQ-ISAM)<a class="headerlink" href="#integrated-source-apportionment-method-cmaq-isam" title="Permalink to this heading">#</a></h1>
+<h1>11. Integrated Source Apportionment Method (CMAQ-ISAM)<a class="headerlink" href="#integrated-source-apportionment-method-cmaq-isam" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2>11.1 Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>11.1 Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>The Integrated Source Apportionment Method (ISAM) calculates source attribution information for user specified ozone and particulate matter precursors within the CMAQ model.  CMAQ-ISAM has been substantially updated starting with the CMAQv5.3 release, and now differs significantly from previous releases. The major changes to the ISAM chemistry solver are detailed in the <a class="reference download internal" download="" href="../_downloads/539324bd62ccf68bb795b7a62361daa8/CMAQ_ISAM_Chemistry_Supplemental_Equations.pdf"><span class="xref download myst">ISAM Chemistry Supplement</span></a>. In addition, signifcant updates and multiple minor fixes were included in the  subsequent releases including substantial updates to the gas-phase chemistry apportionment algorithms that improve both physical and numerical aspects of the method. Users of CMAQ-ISAM are strongly encouraged to update to the latest available release of the model.</p>
 <p>The base CMAQ model provides users the concentration and deposition fields of many pollutant species. These species are usually combinations of different types of primary emissions and secondary formation that have been physically and chemically transformed in the model. However, sometimes it is desirable to know specific source attribution information for the model outputs. For example, how much of the ozone in an urban area was formed due to nitrogen oxides emitted from motor vehicles in a neighboring state?</p>
 <p>Answering this type of question often requires running an air quality model twice, once with the standard emissions scenario and once with the source of interest completely removed. The difference between the two runs is then assumed to be attributed to the removed source.  While this approach is reasonably straightforward to implement, it has some drawbacks.  For example, removing a large source from the system in a highly nonlinear chemical mixture can lead to some errors. Also, calculating source attribution of many sources can be logistically and computationally prohibitive.</p>
@@ -405,7 +397,7 @@
 </div>
 </section>
 <section id="build-instructions">
-<h2>11.2 Build Instructions<a class="headerlink" href="#build-instructions" title="Permalink to this heading">#</a></h2>
+<h2>11.2 Build Instructions<a class="headerlink" href="#build-instructions" title="Link to this heading">#</a></h2>
 <p>Starting with CMAQv5.3 model release, ISAM is provided directly with the source code of the base model. To use ISAM, follow the normal build process for CMAQ described in <a class="reference internal" href="CMAQ_UG_ch05_running_a_simulation.html"><span class="std std-doc">Chapter 5</span></a>, but make sure to uncomment the following line in bldit_cctm.csh:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">ISAM_CCTM</span>
 </pre></div>
@@ -420,7 +412,7 @@ This version is available as a zip file from the following address:</p>
 <p>ISAM is currently only implemented for the EBI solver. For some CMAQ applications, the Rosenbrock solver is desirable and is set as the default in the sample runscripts. For example, this is the case when using the CB6R5M chemical mechanism for hemispheric simulations. In such cases, the bldit script needs to be modified to not select the Rosenbrock solver. While this may incur a performance penalty in terms of CPU time and increase the likelyhood of convergence warnings, it will allow the ISAM simulation to proceed in most cases.</p>
 </section>
 <section id="run-instructions">
-<h2>11.3 Run Instructions<a class="headerlink" href="#run-instructions" title="Permalink to this heading">#</a></h2>
+<h2>11.3 Run Instructions<a class="headerlink" href="#run-instructions" title="Link to this heading">#</a></h2>
 <p>To begin a CMAQ simulation with source apportionment enabled, the ISAM section of the runscript must be configured.  The additional necessary environment variables are listed in Table 11-1.</p>
 <p><a id=Table11-1></a></p>
 <p><strong>Table 11-1. ISAM run script variables</strong></p>
@@ -497,7 +489,7 @@ This version is available as a zip file from the following address:</p>
 </div>
 <p>Additionally, ISAM can track emissions confined to geographic regions.  This functionality can be enabled through CMAQ’s <code class="docutils literal notranslate"><span class="pre">RegionsRegistry</span></code> set in the <code class="docutils literal notranslate"><span class="pre">CMAQ_Control_DESID</span></code> namelist (Appendix B.4) and is discussed further below.</p>
 <section id="isam-and-bidirectional-nh3-exchange">
-<h3>ISAM and bidirectional NH<sub>3</sub> exchange<a class="headerlink" href="#isam-and-bidirectional-nh3-exchange" title="Permalink to this heading">#</a></h3>
+<h3>ISAM and bidirectional NH<sub>3</sub> exchange<a class="headerlink" href="#isam-and-bidirectional-nh3-exchange" title="Link to this heading">#</a></h3>
 <p>ISAM in CMAQ v5.3 supports bidirectional NH<sub>3</sub> exchange using both M3Dry and STAGE deposition options. To run with this option the AMMONIUM species class must be set in the ISAM control file</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TAG</span> <span class="n">CLASSES</span>     <span class="o">|</span><span class="n">AMMONIUM</span>
 </pre></div>
@@ -510,7 +502,7 @@ This version is available as a zip file from the following address:</p>
 <p>Setting these options will automatically set the BID tag for model output. Modeled species output with the BID tag represent the influence of NH<sub>3</sub> emissions from fertilizer and biogenic NH<sub>3</sub> emission sources. Biogenic NH<sub>3</sub> emissions include the evasion of NH<sub>3</sub> from non-agricultural vegetation and soil NH<sub>4</sub> pools as parameterized in the STAGE or M3Dry models.</p>
 </section>
 <section id="isam-run-time-options-for-gas-chemistry-and-ozone-production">
-<h3>ISAM run-time options for gas chemistry and ozone production<a class="headerlink" href="#isam-run-time-options-for-gas-chemistry-and-ozone-production" title="Permalink to this heading">#</a></h3>
+<h3>ISAM run-time options for gas chemistry and ozone production<a class="headerlink" href="#isam-run-time-options-for-gas-chemistry-and-ozone-production" title="Link to this heading">#</a></h3>
 <p>In the runtime table, the last four rows deal with ISAM’s method for apportioning source contributions from gas chemistry. They weight specific species that are chemical reactants so a reaction’s product are totally apportioned to the weighted reactant. If both reactants are weighted, products are equally apportioned between reactants. Note that the unmodified method always equally apportions products. The changes seek to isolate sources that emit or secondary produce the weighted reactants because their sources are controllable or deemed responsible for deteriorating air quality.</p>
 <p>The weighting schemes focus on apportioning NOx and ozone concentrations so weighted species include several reactive nitrogen compounds, oxygenated VOCs, organic peroxy radicals and operators. A new runtime option, ISAM_O3_WEIGHTS, determines what species are weighted. The below two tables define what different values set for ISAM_O3_WEIGHTS. The first define option values 1 thru 4. Option 1 reproduces results from the unmodified code. The second table describes option 5 that toggles between two weight settings listed in the first table.</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -634,7 +626,7 @@ This version is available as a zip file from the following address:</p>
 </div>
 </section>
 <section id="isam-control-file-sa-iolist">
-<h3>11.3.1 ISAM control file (SA_IOLIST)<a class="headerlink" href="#isam-control-file-sa-iolist" title="Permalink to this heading">#</a></h3>
+<h3>11.3.1 ISAM control file (SA_IOLIST)<a class="headerlink" href="#isam-control-file-sa-iolist" title="Link to this heading">#</a></h3>
 <p>The ISAM <code class="docutils literal notranslate"><span class="pre">SA_IOLIST</span></code> is a text file used to configure which tag classes, emissions streams, and source regions the model will track.  An example of this file, <code class="docutils literal notranslate"><span class="pre">isam_control.txt</span></code>, is provided in $CMAQ_HOME/CCTM/scripts.  The order and formating of this file must be kept intact, but it does allow for insertion of comment lines.</p>
 <p>Each ISAM simulation requires the specification of the <code class="docutils literal notranslate"><span class="pre">TAG</span> <span class="pre">CLASSES</span></code> that the user desires to apportion.  The current list includes the following choices <code class="docutils literal notranslate"><span class="pre">SULFATE,</span> <span class="pre">NITRATE,</span> <span class="pre">AMMONIUM,</span> <span class="pre">EC,</span> <span class="pre">OC,</span> <span class="pre">VOC,</span> <span class="pre">PM25_IONS,</span> <span class="pre">OZONE</span></code>.  Species associated with each of these are provided in section 11.1.  One or more of these tag classes must be specified in <code class="docutils literal notranslate"><span class="pre">SA_IOLIST</span></code>.  Multiple tag classes are comma delimited. Incorrectly specified choices for this field will cause a model crash.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TAG</span> <span class="n">CLASSES</span>     <span class="o">|</span><span class="n">OZONE</span><span class="p">,</span> <span class="n">SULFATE</span>
@@ -670,7 +662,7 @@ This version is available as a zip file from the following address:</p>
 </div>
 <p>Please, note that, currently, ISAM results for the same user defined tag may differ depending on the overall configuration and content of the ISAM control file.  This weakness of the method is detailed in the last section of the <a class="reference download internal" download="" href="../_downloads/539324bd62ccf68bb795b7a62361daa8/CMAQ_ISAM_Chemistry_Supplemental_Equations.pdf"><span class="xref download myst">ISAM Chemistry Supplement</span></a>.  Generally, tracking a larger number of tags produces more consistent apportionment results.</p>
 <section id="defining-isam-tags-for-in-line-sources">
-<h4>Defining ISAM Tags for In-line Sources.<a class="headerlink" href="#defining-isam-tags-for-in-line-sources" title="Permalink to this heading">#</a></h4>
+<h4>Defining ISAM Tags for In-line Sources.<a class="headerlink" href="#defining-isam-tags-for-in-line-sources" title="Link to this heading">#</a></h4>
 <p>The CMAQ model allows several types of emissions that are calculated in-line or during a model simulation instead of provided by the user as inputs. A simulations can use all of these inline emissions and ISAM can calculate apportionment from these sources. The former is done by setting appropriate emissions options in the CMAQ runscript. For ISAM to calculate apportionment for an in-line source, the isam control file needs to define a tagname using the correct stream name.  The below table lists currently supported inline emissions streams in CMAQ:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -706,7 +698,7 @@ This version is available as a zip file from the following address:</p>
 <p>*Although it is not an emission stream, it is possible to tag the ozone incursions at the top of the simulated volume if the base model is compiled with potential vorticity module enabled.</p>
 </section>
 <section id="interpretation-of-oth-tag">
-<h4>Interpretation of ‘OTH’ tag<a class="headerlink" href="#interpretation-of-oth-tag" title="Permalink to this heading">#</a></h4>
+<h4>Interpretation of ‘OTH’ tag<a class="headerlink" href="#interpretation-of-oth-tag" title="Link to this heading">#</a></h4>
 <p>The OTH tag (e.g.“O3_OTH” in the ISAM benchmark) represents concentrations for that species attributed to 1) all other emissions streams, 2) precursor species not included in the specified tag class(es), and 3) other processes in the model.</p>
 <p>For item 1), this includes internally calculated emissions that a user decides to exclude from the control file (perhaps to reduce computational cost of running with tags that are not of interest to a particular application). These are things like online biogenics, online lightning, dust, etc.</p>
 <p>For item 2), these are some secondarily produced intermidiate species that have minor impact on ozone production.</p>
@@ -716,11 +708,11 @@ This version is available as a zip file from the following address:</p>
 </section>
 </section>
 <section id="isam-benchmark">
-<h2>11.4 ISAM Benchmark<a class="headerlink" href="#isam-benchmark" title="Permalink to this heading">#</a></h2>
+<h2>11.4 ISAM Benchmark<a class="headerlink" href="#isam-benchmark" title="Link to this heading">#</a></h2>
 <p>See the <a class="reference internal" href="Tutorials/CMAQ_UG_tutorial_ISAM.html"><span class="std std-doc">CMAQ-ISAM Benchmark Tutorial</span></a> for step-by-step instructions for running the 2 day benchmark case.  The input files for the CMAQv5.4 ISAM benchmark case are the same as the benchmark inputs for the base model. Output source apportionment files associated with the sample <code class="docutils literal notranslate"><span class="pre">isam_control.txt</span></code> provided in this release package are included in the benchmark outputs for the base model.</p>
 </section>
 <section id="references">
-<h2>11.5 References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2>11.5 References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <p>Kwok, R.H.F, Napelenok, S.L., &amp; Baker, K.R. (2013). Implementation and evaluation of PM2.5 source contribution analysis in a photochemical model. Atmospheric Environment, 80, 398–407 <a class="reference external" href="https://doi.org/10.1016/j.atmosenv.2013.08.017">doi:10.1016/j.atmosenv.2013.08.017</a>.</p>
 <p>Kwok, R.H.F, Baker, K.R., Napelenok, S.L., &amp; Tonnesen, G.S. (2015). Photochemical grid model implementation of VOC, NOx, and O3 source apportionment. Geosci. Model Dev., 8, 99-114. <a class="reference external" href="https://doi.org/10.5194/gmd-8-99-2015">doi:10.5194/gmd-8-99-2015</a>.</p>
 <p>Sillman, Sanford. (1995). The use of NOy, H2O2, and HNO3 as indicators for ozone-NOx-hydrocarbon sensitivity in urban locations. Journal of Geophysical Research. 1001. 14175-14188.</p>
@@ -824,7 +816,7 @@ CMAQ User’s Guide (c) 2022<br></p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>

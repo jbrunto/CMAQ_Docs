@@ -17,7 +17,7 @@ release = '0.1'
 
 # These three objects provided with initial setup - 'myst_parser' added later
 extensions = [
-        'myst_parser',
+        'myst_parser'
 #        'sphinx.ext.autodoc',
 #        'sphinx.ext.autosectionlabel',
 #        'sphinx.ext.napoleon',
@@ -27,7 +27,7 @@ extensions = [
 #        'sphinx_gallery.gen_gallery',
 #        'sphinx_panels'
 #        'sphinx_design',
-        'sphinx_copybutton'
+#        'sphinx_copybutton'
 ]
 #myst_enable_extensions = ["colon_fence", "linkify"]
 #myst_heading_anchors = 1
@@ -45,11 +45,11 @@ source_suffix = {
 import pydata_sphinx_theme
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
-html_sidebars = {
+#html_sidebars = {
 #        'index': ['searchbox.html'],
-        '**': ['searchbox.html']
-        }
-
+#        '**': ['localtoc.html', 'searchbox.html']
+#        }
+html_sidebars = {}
 html_theme_options = {
     "github_url": "https://github.com/USEPA/CMAQ",
     "logo": {
