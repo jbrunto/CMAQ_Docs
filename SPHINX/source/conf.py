@@ -25,7 +25,7 @@ extensions = [
         'sphinx.ext.githubpages',
 #        'sphinx_gallery.gen_gallery',
 #        'sphinx_panels'
-        'sphinx_design'
+#        'sphinx_design'
 ]
 myst_enable_extensions = ["colon_fence"]
 
