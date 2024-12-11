@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -39,9 +39,9 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=e031e9a9"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Users_Guide/Appendix/CMAQ_UG_appendixD_parallel_implementation';</script>
@@ -384,16 +384,16 @@
 <p><a class="reference internal" href="CMAQ_UG_appendixC_spatial_data.html"><span class="std std-doc">&lt;&lt; Previous Appendix</span></a> - <a class="reference internal" href="../README.html"><span class="std std-doc">Home</span></a> - <a class="reference internal" href="CMAQ_UG_appendixE_configuring_WRF.html"><span class="std std-doc">Next Appendix &gt;&gt;</span></a></p>
 <!-- END COMMENT -->
 <section id="appendix-d-parallel-implementation-of-cmaq">
-<h1>Appendix D: Parallel Implementation of CMAQ<a class="headerlink" href="#appendix-d-parallel-implementation-of-cmaq" title="Link to this heading">#</a></h1>
+<h1>Appendix D: Parallel Implementation of CMAQ<a class="headerlink" href="#appendix-d-parallel-implementation-of-cmaq" title="Permalink to this heading">#</a></h1>
 <section id="d-1-general-structure-of-data">
-<h2>D.1 General Structure of data<a class="headerlink" href="#d-1-general-structure-of-data" title="Link to this heading">#</a></h2>
+<h2>D.1 General Structure of data<a class="headerlink" href="#d-1-general-structure-of-data" title="Permalink to this heading">#</a></h2>
 <p>There are a few approaches to parallelize an application, such as data-parallelism. Data-parallelism is a paradigm which decomposes data into “equal” sections and distributes them among allocated processors. Each processor works on the portion it owns. CMAQ parallel implementation is based on this methodology.</p>
 <p>The CMAQ model operates on a 4D space (ncols, nrows, nlays, nspcs) and only the spatial domain is decomposed. When NPROCS processors are used to run CMAQ, NPCOL number of processors are assigned to the column dimension and NPROCS/NPCOL processors are assigned to the row dimension (NPROCS = NPCOL x NPROW). In the case that the column dimension is not divisible by NPCOL, the remainder is distributed equally to NPCOL processors. The same approach is applied to the row dimension. For example (illustrated in Figure D-1), given a 100 by 75 (column x row) data grid and six processors with three processors along the column dimension and two processors along the row dimension, the following subdomain sizes (NCOLS x NROWS) are assigned to each processor: 34 x 38 (processor 0), 33 x 38 (processors 1 and 2), 34 x 37 (processor 3), and 33 x 37 (processors 4 and 5).</p>
 <p><img alt="Figure D-1" src="../../_images/FigureD-11.png" /></p>
 <p><strong>Figure D-1. Domain decomposition illustration</strong></p>
 </section>
 <section id="d-2-interprocessor-communication">
-<h2>D.2 Interprocessor Communication<a class="headerlink" href="#d-2-interprocessor-communication" title="Link to this heading">#</a></h2>
+<h2>D.2 Interprocessor Communication<a class="headerlink" href="#d-2-interprocessor-communication" title="Permalink to this heading">#</a></h2>
 <p>In some science processes such as advection, a processor requires data from neighboring processors (interprocessor communication) when the model runs on a distributed memory system. An interprocessor communication library, STENEX, was developed to provide a simple and robust interface to handle various kinds of near neighbor communication. Near neighbor is defined as processors which are adjacent to a given processor (blue block) in the eight major geographical directions: N, NE, E, SE. S, SW, W, and NW (Fig. D-2).</p>
 <p><img alt="Figure D-2" src="../../_images/FigureD-21.png" /></p>
 <p><strong>Figure D-2. A depiction of near neighbor processors</strong></p>
@@ -420,7 +420,7 @@ END DO</p>
 <p><strong>Figure D-5. Sub-section data redistribution communication</strong></p>
 </section>
 <section id="d-3-parallel-i-o">
-<h2>D.3 Parallel I/O<a class="headerlink" href="#d-3-parallel-i-o" title="Link to this heading">#</a></h2>
+<h2>D.3 Parallel I/O<a class="headerlink" href="#d-3-parallel-i-o" title="Permalink to this heading">#</a></h2>
 <p>All I/O operations in CMAQ are handled by the I/O API library. Furthermore, the I/O API library was designed for serial code. As a result, CMAQ cannot utilize any I/O functions contained in the in I/O API library (such as READ3 and WRITE3) directly in any parallel computing platform.</p>
 <p>CMAQv4.7.1 and later releases include a directory called ‘PARIO’ which was developed to bridge this gap. PARIO contains a smaller set of functions which are counterparts to equivalent functions in IOAPI but capable to run in parallel. The following I/O API routines have PARIO equivalents: READ3, INTERP3, WRITE3, CHECK3, OPEN3, CLOSE3, DESC3, M3ERR, M3EXIT, M3WARN. Each file name in the PARIO library has a “P” prefix to distinguish it from its counterpart in the I/O API library, e.g. POPEN3 and PINTERP3. Substitution with the PARIO subroutines is done at compilation through CPP flags. Note that the subroutine argument lists in any PARIO routine are identical to those in the I/O API counterpart routine.</p>
 <p>On the output side, all processors are required to send their portion of data to processor 0, which will stitch together each sub-part and then output it to the file (Fig. D-8). This is considered a “pseudo” parallel I/O approach and this approach is being using in PARIO.</p>
@@ -471,7 +471,7 @@ include_path = -I /home/CMAQ_PIO/CMAQ_libs/ioapi_3.2/Linux2_x86_64ifortmpi \
 <p>For further directions on installation of PIO or if you encounter difficulties using the PIO feature, please contact David Wong at wong.david-c&#64;epa.gov</p>
 </section>
 <section id="d-4-reference">
-<h2>D.4 Reference:<a class="headerlink" href="#d-4-reference" title="Link to this heading">#</a></h2>
+<h2>D.4 Reference:<a class="headerlink" href="#d-4-reference" title="Permalink to this heading">#</a></h2>
 <p>Wong, D.C., Yang, C.E., Fu, J.S., Wong, K., &amp; Gao, Y. (2015). An approach to enhance pnetCDF performance in environmental modeling applications. Geosci. Model Dev., 8, 1033-1046.</p>
 <!-- BEGIN COMMENT -->
 <p><a class="reference internal" href="CMAQ_UG_appendixC_spatial_data.html"><span class="std std-doc">&lt;&lt; Previous Appendix</span></a> - <a class="reference internal" href="../README.html"><span class="std std-doc">Home</span></a> - <a class="reference internal" href="CMAQ_UG_appendixE_configuring_WRF.html"><span class="std std-doc">Next Appendix &gt;&gt;</span></a> <br>
@@ -559,7 +559,7 @@ CMAQ User’s Guide (c) 2022<br></p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
     <br/>
   </p>
 </div>

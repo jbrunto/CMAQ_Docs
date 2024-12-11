@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -39,9 +39,9 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=e031e9a9"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Users_Guide/Appendix/CMAQ_UG_appendixE_configuring_WRF';</script>
@@ -384,9 +384,9 @@
 <p><a class="reference internal" href="CMAQ_UG_appendixD_parallel_implementation.html"><span class="std std-doc">&lt;&lt; Previous Appendix</span></a> - <a class="reference internal" href="../README.html"><span class="std std-doc">Home</span></a> - <a class="reference internal" href="CMAQ_UG_appendixF_elmo_output.html"><span class="std std-doc">Next Appendix &gt;&gt;</span></a></p>
 <!-- END COMMENT -->
 <section id="appendix-e-configuring-the-weather-research-and-forecasting-model-wrf-for-use-with-air-quality-models">
-<h1>Appendix E: Configuring the Weather Research and Forecasting Model (WRF) for Use with Air Quality Models<a class="headerlink" href="#appendix-e-configuring-the-weather-research-and-forecasting-model-wrf-for-use-with-air-quality-models" title="Link to this heading">#</a></h1>
+<h1>Appendix E: Configuring the Weather Research and Forecasting Model (WRF) for Use with Air Quality Models<a class="headerlink" href="#appendix-e-configuring-the-weather-research-and-forecasting-model-wrf-for-use-with-air-quality-models" title="Permalink to this heading">#</a></h1>
 <section id="e-1-wrf-version-4-3">
-<h2>E.1 WRF version 4.3+<a class="headerlink" href="#e-1-wrf-version-4-3" title="Link to this heading">#</a></h2>
+<h2>E.1 WRF version 4.3+<a class="headerlink" href="#e-1-wrf-version-4-3" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong><a class="reference external" href="http://www2.mmm.ucar.edu/wrf/users/docs/PX-ACM.pdf">WRF configuration guide for CMAQ applications</a></strong></p></li>
 <li><p>UPDATE: Modified the ACM2 PBL height algorithm for stable conditions so that the Richardson number is computed using windspeed
@@ -396,7 +396,7 @@ in layer k rather than wind speed difference between layer k and ksrc.</p></li>
 </ul>
 </section>
 <section id="e-2-wrf-version-4-0">
-<h2>E.2 WRF version 4.0<a class="headerlink" href="#e-2-wrf-version-4-0" title="Link to this heading">#</a></h2>
+<h2>E.2 WRF version 4.0<a class="headerlink" href="#e-2-wrf-version-4-0" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>WRF4.0 has updates to the ACM2 PBL model to account for the new default hybrid coordinate system. Our internal model runs suggest that the hybrid option (hybrid_opt =2) improves the model in areas where topographical variations are more extreme like the Rocky Mountains. As such, it is suggested, but not a requirement, to use this option in WRF that became the default in WRF4.0.</p></li>
 <li><p>UPDATE: Added vegetation and leaf-area index option for Pleim-Xiu land-surface runs. Until this version, the PX LSM uses VEGFRA and LAI computed from the module_sf_pxlsm_data.F PX data table. This uses fractional landuse and these lookup values to compute the LAI and VEGFRA for each grid cell. The new option (pxlsm_modis_veg = 1) is activated using this option in the physics section of the namelist.input file. It uses the time-varying VEGFRA and LAI from the wrflowinp_d01 file instead of the look-up values in the PX data table. This allows use of more accurate high resolution MODIS that is now available in WPS in WRFv4+. Alternatively, users can process their own MODIS data for specific years and put in this same input file.</p></li>
@@ -404,13 +404,13 @@ in layer k rather than wind speed difference between layer k and ksrc.</p></li>
 </ul>
 </section>
 <section id="e-3-wrf-version-3-7">
-<h2>E.3 WRF version 3.7<a class="headerlink" href="#e-3-wrf-version-3-7" title="Link to this heading">#</a></h2>
+<h2>E.3 WRF version 3.7<a class="headerlink" href="#e-3-wrf-version-3-7" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong><a class="reference external" href="http://www2.mmm.ucar.edu/wrf/users/docs/PX-ACM.pdf">Section from WRFv3.7 Technical Documentation related to air quality modeling</a>:</strong> This 8 page pdf provides description and procedures for using the Pleim-Xiu LSM, ACM2 PBL and Pleim Surface Layer Scheme in WRF including best practices and namelist options.</p></li>
 </ul>
 </section>
 <section id="e-4-wrf-with-lightning-assimilation">
-<h2>E.4 WRF with lightning assimilation<a class="headerlink" href="#e-4-wrf-with-lightning-assimilation" title="Link to this heading">#</a></h2>
+<h2>E.4 WRF with lightning assimilation<a class="headerlink" href="#e-4-wrf-with-lightning-assimilation" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong><a class="reference external" href="https://wcms.epa.gov/sites/production/files/2017-02/documents/wrf_with_ltga_userguide.pdf">WRF with Lightning Assimilation User’s Guide</a>:</strong> This 3 page pdf describes how to run WRF with the lightning assimilation technique described in Heath et al. (2016).
 The assimilation method uses gridded lightning data to trigger and suppress sub-grid deep convection in Kain-Fritsch.
@@ -421,7 +421,7 @@ All of the necessary code modifications and data are described in the document.<
 </ul>
 </section>
 <section id="e-5-reference">
-<h2>E.5 Reference:<a class="headerlink" href="#e-5-reference" title="Link to this heading">#</a></h2>
+<h2>E.5 Reference:<a class="headerlink" href="#e-5-reference" title="Permalink to this heading">#</a></h2>
 <p>Noilhan, J., &amp; Mahfouf, J. F. (1996). The ISBA land surface parameterization scheme. Global and planetary Change, 13(1-4), 145-159.</p>
 <p>Noilan, J., and S. Planton, 1989: A simple parameterization of land surface processes for meteorological models. Mon. Wea. Rev., 117, 536-549.</p>
 <p>Pleim, J. E., and A. Xiu, 1995: Development and testing of a surface flux and planetary boundary layer model for application in mesoscale models. J. Appl. Meteor., 34, 16-32.</p>
@@ -520,7 +520,7 @@ CMAQ User’s Guide (c) 2022<br></p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
     <br/>
   </p>
 </div>

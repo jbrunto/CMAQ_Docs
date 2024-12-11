@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -39,9 +39,9 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=e031e9a9"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Users_Guide/Tutorials/CMAQ_UG_tutorial_benchmark';</script>
@@ -381,7 +381,7 @@
                 <article class="bd-article">
                   
   <section id="cmaq-installation-benchmarking-tutorial">
-<h1>CMAQ Installation &amp; Benchmarking Tutorial<a class="headerlink" href="#cmaq-installation-benchmarking-tutorial" title="Link to this heading">#</a></h1>
+<h1>CMAQ Installation &amp; Benchmarking Tutorial<a class="headerlink" href="#cmaq-installation-benchmarking-tutorial" title="Permalink to this heading">#</a></h1>
 <p>Purpose: This guide describes how to install and run the CMAQ test case, which serves two different purposes. The first being to familiarize the user with the CMAQ suite of programs and how they work together, and secondly to verify the installation of the software on your system via benchmarking.</p>
 <p>Benchmarking refers to a simulation that is used to verify that the software is installed correctly.  Benchmarking CMAQ is recommended in the following circumstances:</p>
 <ul class="simple">
@@ -392,7 +392,7 @@
 <li><p>Following netCDF or I/O API library upgrades</p></li>
 </ul>
 <section id="system-checks">
-<h2>System Checks<a class="headerlink" href="#system-checks" title="Link to this heading">#</a></h2>
+<h2>System Checks<a class="headerlink" href="#system-checks" title="Permalink to this heading">#</a></h2>
 <p>The following support software are required for compiling and running CMAQ.</p>
 <ol class="arabic simple">
 <li><p>Fortran and C compilers, e.g., <a class="reference external" href="https://software.intel.com/en-us/fortran-compilers">Intel</a>, <a class="reference external" href="http://www.pgroup.com">Portland Group</a>, <a class="reference external" href="https://gcc.gnu.org/wiki/GFortran">Gnu</a></p></li>
@@ -411,7 +411,7 @@ https://github.com/USEPA/CMAQ/tree/main/DOCS/Users_Guide/Tutorials</p></li>
 </ol>
 </section>
 <section id="install-cmaq-and-required-libraries">
-<h2>Install CMAQ and Required Libraries<a class="headerlink" href="#install-cmaq-and-required-libraries" title="Link to this heading">#</a></h2>
+<h2>Install CMAQ and Required Libraries<a class="headerlink" href="#install-cmaq-and-required-libraries" title="Permalink to this heading">#</a></h2>
 <p>In the directory where you would like to install CMAQ, create the directory issue the following command to clone the EPA GitHub repository for CMAQv5.4:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">-</span><span class="n">b</span> <span class="n">main</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">USEPA</span><span class="o">/</span><span class="n">CMAQ</span><span class="o">.</span><span class="n">git</span> <span class="n">CMAQ_REPO</span>
 </pre></div>
@@ -419,7 +419,7 @@ https://github.com/USEPA/CMAQ/tree/main/DOCS/Users_Guide/Tutorials</p></li>
 <p>For instructions on installing CMAQ from Zip files, see <a class="reference internal" href="../CMAQ_UG_ch05_running_a_simulation.html"><span class="std std-doc">Chapter 5</span></a>.</p>
 </section>
 <section id="check-out-a-new-branch-in-the-cmaq-repository">
-<h2>Check Out a new Branch in the CMAQ Repository<a class="headerlink" href="#check-out-a-new-branch-in-the-cmaq-repository" title="Link to this heading">#</a></h2>
+<h2>Check Out a new Branch in the CMAQ Repository<a class="headerlink" href="#check-out-a-new-branch-in-the-cmaq-repository" title="Permalink to this heading">#</a></h2>
 <p>Checking out a new branch is a good idea even if you are not doing code development, per se. It is likely that you will want to retrieve new updates in the future, and an easy way to do this is through the main branch in the git repo. Thus, it is beneficial to leave it unperturbed if possible.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">CMAQ_REPO</span>
 <span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">my_branch</span>
@@ -427,10 +427,10 @@ https://github.com/USEPA/CMAQ/tree/main/DOCS/Users_Guide/Tutorials</p></li>
 </div>
 </section>
 <section id="configure-the-cmaq-build-environment">
-<h2>Configure the CMAQ build environment<a class="headerlink" href="#configure-the-cmaq-build-environment" title="Link to this heading">#</a></h2>
+<h2>Configure the CMAQ build environment<a class="headerlink" href="#configure-the-cmaq-build-environment" title="Permalink to this heading">#</a></h2>
 <p>The user has two options for building an environment. She or he may build and run CMAQ components directly in the repository structure (object files and executables will be ignored with .gitignore), or they may extract the build and run scripts out of the repository and work in a separate location. If you would like to build directly in the repository, skip to “Link the CMAQ Libraries” below.</p>
 <section id="build-and-run-in-a-user-specified-directory-outside-of-the-repository">
-<h3>Build and run in a user-specified directory outside of the repository<a class="headerlink" href="#build-and-run-in-a-user-specified-directory-outside-of-the-repository" title="Link to this heading">#</a></h3>
+<h3>Build and run in a user-specified directory outside of the repository<a class="headerlink" href="#build-and-run-in-a-user-specified-directory-outside-of-the-repository" title="Permalink to this heading">#</a></h3>
 <p>In the top level of CMAQ_REPO, the bldit_project.csh script will automatically replicate the CMAQ folder structure and copy every build and run script out of the repository so that you may modify them freely without version control.</p>
 <p>In bldit_project.csh, modify the variable $CMAQ_HOME to identify the folder that you would like to install the CMAQ package under. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">CMAQ_HOME</span> <span class="o">=</span> <span class="p">[</span><span class="n">your_install_path</span><span class="p">]</span><span class="o">/</span><span class="n">CMAQ_v5</span><span class="mf">.4</span>
@@ -443,7 +443,7 @@ https://github.com/USEPA/CMAQ/tree/main/DOCS/Users_Guide/Tutorials</p></li>
 </section>
 </section>
 <section id="link-the-cmaq-libraries">
-<h2>Link the CMAQ Libraries<a class="headerlink" href="#link-the-cmaq-libraries" title="Link to this heading">#</a></h2>
+<h2>Link the CMAQ Libraries<a class="headerlink" href="#link-the-cmaq-libraries" title="Permalink to this heading">#</a></h2>
 <p>The CMAQ build scripts require the following libraries and INCLUDE files to be available in the CMAQ_LIB directory (Note: the CMAQ_LIB gets set automatically by the config_cmaq.csh script, where <code class="docutils literal notranslate"><span class="pre">CMAQ_LIB</span> <span class="pre">=</span> <span class="pre">$CMAQ_HOME/lib</span></code>):</p>
 <ul class="simple">
 <li><p>netCDF C library files are located in the <code class="docutils literal notranslate"><span class="pre">$CMAQ_LIB/netcdf/lib</span></code> directory</p></li>
@@ -474,7 +474,7 @@ https://github.com/USEPA/CMAQ/tree/main/DOCS/Users_Guide/Tutorials</p></li>
 </div>
 </section>
 <section id="install-the-cmaq-reference-input-and-output-benchmark-data">
-<h2>Install the CMAQ reference input and output benchmark data<a class="headerlink" href="#install-the-cmaq-reference-input-and-output-benchmark-data" title="Link to this heading">#</a></h2>
+<h2>Install the CMAQ reference input and output benchmark data<a class="headerlink" href="#install-the-cmaq-reference-input-and-output-benchmark-data" title="Permalink to this heading">#</a></h2>
 <p>Download the CMAQ two day reference input and output data from the [CMAS Center Data Warehouse Google Drive](<a class="reference external" href="https://drive.google.com/drive/folders/1AFUB-4kzIXXoZr4hOHNBqRvy9JQ9_MDp?usp=sharing">https://drive.google.com/file/d/1AFUB-4kzIXXoZr4hOHNBqRvy9JQ9_MDp/view?usp=sharing</a>. The CMAQ benchmark test case is a two day simulation for July 1-2 2018 on a 100 column x 105 row x 35 layer 12-km resolution domain over the northeast U.S.</p>
 <ul class="simple">
 <li><p>Use the gdrive command to download the dataset.</p></li>
@@ -491,24 +491,24 @@ tar xvzf CMAQv5.4_2018_12NE3_Benchmark_2Day_Output.tar.gz
 </div>
 </section>
 <section id="compiling-cmaq">
-<h2>Compiling CMAQ<a class="headerlink" href="#compiling-cmaq" title="Link to this heading">#</a></h2>
+<h2>Compiling CMAQ<a class="headerlink" href="#compiling-cmaq" title="Permalink to this heading">#</a></h2>
 <p><em>Before proceeding, it should be noted that building the ICON and BCON executables are optional steps when working specifically with the benchmark data. This is because the initial condition and boundary condition files have been provided for you within the benchmark data set. For further information on these preprocessors please reference <a class="reference internal" href="../CMAQ_UG_ch04_model_inputs.html"><span class="std std-doc">Chapter 4</span></a>.</em></p>
 <p>Create the model executables for CCTM using the steps shown below.</p>
 <section id="configuration-for-multi-processor-runs-default">
-<h3>Configuration for multi-processor runs (default):<a class="headerlink" href="#configuration-for-multi-processor-runs-default" title="Link to this heading">#</a></h3>
+<h3>Configuration for multi-processor runs (default):<a class="headerlink" href="#configuration-for-multi-processor-runs-default" title="Permalink to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">ParOpt</span> <span class="c1">#&gt;  Option for MPI Runs</span>
 </pre></div>
 </div>
 </section>
 <section id="configuration-for-single-processor-runs-optional">
-<h3>Configuration for single-processor runs (optional):<a class="headerlink" href="#configuration-for-single-processor-runs-optional" title="Link to this heading">#</a></h3>
+<h3>Configuration for single-processor runs (optional):<a class="headerlink" href="#configuration-for-single-processor-runs-optional" title="Permalink to this heading">#</a></h3>
 <p>For single-processor computing, edit the CCTM build script (bldit_cctm.csh) to indicate a single-processor run by commenting out set ParOpt as shown below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#set ParOpt #&gt; Option for Single Processor Runs</span>
 </pre></div>
 </div>
 </section>
 <section id="configure-cmaq-benchmark-science-modules">
-<h3>Configure CMAQ benchmark Science Modules:<a class="headerlink" href="#configure-cmaq-benchmark-science-modules" title="Link to this heading">#</a></h3>
+<h3>Configure CMAQ benchmark Science Modules:<a class="headerlink" href="#configure-cmaq-benchmark-science-modules" title="Permalink to this heading">#</a></h3>
 <p>The build directory parameters for the benchmark test case include the following:</p>
 <ul class="simple">
 <li><p>Multiprocessor simulation</p></li>
@@ -533,7 +533,7 @@ tar xvzf CMAQv5.4_2018_12NE3_Benchmark_2Day_Output.tar.gz
 </section>
 </section>
 <section id="configure-the-cctm-script">
-<h2>Configure the CCTM script<a class="headerlink" href="#configure-the-cctm-script" title="Link to this heading">#</a></h2>
+<h2>Configure the CCTM script<a class="headerlink" href="#configure-the-cctm-script" title="Permalink to this heading">#</a></h2>
 <p>For an MPI configuration with 16 processors,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $CMAQ_HOME/CCTM/scripts
 </pre></div>
@@ -569,7 +569,7 @@ setenv INPDIR  ${CMAQ_DATA}/2018_12NE3
 </div>
 </section>
 <section id="confirm-that-the-benchmark-simulation-completed">
-<h2>Confirm that the Benchmark Simulation Completed<a class="headerlink" href="#confirm-that-the-benchmark-simulation-completed" title="Link to this heading">#</a></h2>
+<h2>Confirm that the Benchmark Simulation Completed<a class="headerlink" href="#confirm-that-the-benchmark-simulation-completed" title="Permalink to this heading">#</a></h2>
 <p>To confirm that the benchmark case ran to completion view the run.benchmark.log file. For MPI runs, check each of the CTM_LOG_[ProcessorID]*.log files. A successful run will contain the following line at the bottom of the log(s):</p>
 <p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;----&gt;</span>&#160; <span class="pre">Program</span> <span class="pre">completed</span> <span class="pre">successfully</span>&#160; <span class="pre">&lt;----&lt;&lt;</span></code></p>
 <p>Note: If you are running on multiple processors the log file for each processor is also moved from the $CMAQ_HOME/CCTM/scripts directory to the benchmark output directory:</p>
@@ -594,7 +594,7 @@ setenv INPDIR  ${CMAQ_DATA}/2018_12NE3
 <p>Check the last few lines of the CCTM output log for messages to help diagnose why the simulation did not complete.</p>
 </section>
 <section id="check-the-cmaq-benchmark-results">
-<h2>Check the CMAQ Benchmark Results<a class="headerlink" href="#check-the-cmaq-benchmark-results" title="Link to this heading">#</a></h2>
+<h2>Check the CMAQ Benchmark Results<a class="headerlink" href="#check-the-cmaq-benchmark-results" title="Permalink to this heading">#</a></h2>
 <p>To determine if CMAQ is correctly installed on your Linux system compare the results from your benchmark simulation to the reference output data downloaded from the CMAS Center. This data was generated on a Linux system with the following specifications:</p>
 <ul class="simple">
 <li><p>Linux Kernel 3.10.0-514.el7.x86_64</p></li>
@@ -702,7 +702,7 @@ setenv INPDIR  ${CMAQ_DATA}/2018_12NE3
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
     <br/>
   </p>
 </div>
