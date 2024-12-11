@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -31,7 +31,6 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -39,11 +38,9 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e031e9a9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Appendix/CMAQ_UG_appendixF_elmo_output';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -241,7 +238,7 @@
         
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -328,11 +325,6 @@
     
   </div>
   
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<div id="searchbox"></div></div>
-    </div>
-  
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
@@ -385,10 +377,10 @@
 <!-- END COMMENT -->
 <hr class="docutils" />
 <section id="appendix-f-explicit-and-lumped-model-output-elmo">
-<h1>Appendix F: Explicit and Lumped Model Output (ELMO)<a class="headerlink" href="#appendix-f-explicit-and-lumped-model-output-elmo" title="Permalink to this heading">#</a></h1>
+<h1>Appendix F: Explicit and Lumped Model Output (ELMO)<a class="headerlink" href="#appendix-f-explicit-and-lumped-model-output-elmo" title="Link to this heading">#</a></h1>
 <p>The ELMO module makes aerosol diagnostic parameters as well as aggregated and highly processed aerosol metrics available directly in CMAQ output files rather than requiring follow-up post-processing steps.</p>
 <section id="f-1-output-concentration-and-diagnostic-variables">
-<h2>F.1 Output concentration and diagnostic variables<a class="headerlink" href="#f-1-output-concentration-and-diagnostic-variables" title="Permalink to this heading">#</a></h2>
+<h2>F.1 Output concentration and diagnostic variables<a class="headerlink" href="#f-1-output-concentration-and-diagnostic-variables" title="Link to this heading">#</a></h2>
 <p>The ELMO Module streamlines the definition, calculation, and maintenance of gas and particulate concentrations, as well as over 200 aggregate and diagnostic variables, listed in Fig. 1.
 With ELMO, aggregate and diagnostic variables are registered in the <a class="reference download internal" download="" href="../_downloads/8c44c6b27a6ded0e4358e7c76134fbd8/ELMO_DATA.F"><span class="xref download myst">ELMO_DATA.F</span></a>, their calculations are prescribed in <a class="reference download internal" download="" href="../_downloads/80e8f4971de74065587e4d216485ead1/ELMO_PROC.F"><span class="xref download myst">ELMO_PROC.F</span></a>, and CMAQ calculates them online.
 Thus, CMAQ can output higher-level parameters without needing to run any particular post-processing tool.
@@ -399,7 +391,7 @@ Post-processing is still needed to concatenate days of output together onto mont
 <p>Concentrations of scalar variables like NO, NO2, O3, ASO4J, and others are available for output to ELMO files as well. An aggregate variable for total VOC has not been provided for CMAQv5.4 because differences among chemical mechanisms are so significant. This capabality will be added in a future CMAQ version.</p>
 </section>
 <section id="f-2-relationship-to-previous-cmaq-versions">
-<h2>F.2 Relationship to previous CMAQ versions<a class="headerlink" href="#f-2-relationship-to-previous-cmaq-versions" title="Permalink to this heading">#</a></h2>
+<h2>F.2 Relationship to previous CMAQ versions<a class="headerlink" href="#f-2-relationship-to-previous-cmaq-versions" title="Link to this heading">#</a></h2>
 <p>Previously, aggregate parameters like PM<sub>2.5</sub> and Fine-mode Sulfate (ASO4I + ASO4J) were calculated offline through the COMBINE post-processing utility and documented via the species definition (SpecDef) input file for COMBINE, as depcited in Fig. F-2.<br />
 CMAQv5.4 maintains the CONC and ACONC files - they are available for use identically to CMAQv5.3.3. However, PMDIAG and APMDIAG files have been eliminated.
 If a user would like to continue using the COMBINE workflow to aggregate PM variables, they may output necessary variables like FPM25ACC to ELMO files and use those with CONC output.
@@ -428,7 +420,7 @@ There can be some slight numerical differences realized when one compares quanti
 For example, total PM2.5 have some small deviations when it is calculated as the hourly average of the sum of species (online) versus the sum of hourly averaged species (offline).</p>
 </section>
 <section id="f-3-prescribing-features-of-elmo-output-files">
-<h2>F.3 Prescribing features of ELMO output files<a class="headerlink" href="#f-3-prescribing-features-of-elmo-output-files" title="Permalink to this heading">#</a></h2>
+<h2>F.3 Prescribing features of ELMO output files<a class="headerlink" href="#f-3-prescribing-features-of-elmo-output-files" title="Link to this heading">#</a></h2>
 <p>The interface for prescribing ELMO file properties is located in the <a class="reference external" href="https://github.com/USEPA/CMAQ_Dev/blob/research/DOCS/Users_Guide/CMAQ_UG_ch04_model_inputs.md#miscctrl">CMAQ Miscellaneous Control File</a>. The following lines activate or deactivate instantaneous (CCTM_ELMO) and average (CCTM_AELMO) files, respectively:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">elmo_activate</span>
   <span class="n">instant</span> <span class="o">=</span> <span class="o">.</span><span class="n">FALSE</span><span class="o">.</span>
@@ -457,7 +449,7 @@ For example, total PM2.5 have some small deviations when it is calculated as the
 When 2D variables are output on a 3D ELMO file, ELMO will put real data in layer 1, and I/O-API missing values above layer 1.</p>
 </section>
 <section id="f-4-selecting-elmo-output-variables">
-<h2>F.4 Selecting ELMO output variables<a class="headerlink" href="#f-4-selecting-elmo-output-variables" title="Permalink to this heading">#</a></h2>
+<h2>F.4 Selecting ELMO output variables<a class="headerlink" href="#f-4-selecting-elmo-output-variables" title="Link to this heading">#</a></h2>
 <p>All CMAQ scalar variables and all variables in Fig. F-1 are available for output on ELMO files.
 The <a class="reference external" href="https://github.com/USEPA/CMAQ_Dev/blob/research/DOCS/Users_Guide/CMAQ_UG_ch04_model_inputs.md#miscctrl">CMAQ Miscellaneous Control File</a> variables Inst_Vars_Nml and Avrg_Vars_Nml (shown in section F.3) control the variables output to the instantaneous and average ELMO files, respectively.
 Up to 1000 strings may be specified here.
@@ -556,7 +548,7 @@ This and other ELMO keywords are defined in Table F-1.</p>
 Before ELMO maps output variables to internal model species or meteorological inputs, ELMO recursively expands all Keywords to their members and then filters out duplicates. There is no disadvantage to specifying a variable twice in the CMAQ Control namelist.</p>
 </section>
 <section id="f-5-elmo-implementation-in-cmaq">
-<h2>F.5 ELMO Implementation in CMAQ<a class="headerlink" href="#f-5-elmo-implementation-in-cmaq" title="Permalink to this heading">#</a></h2>
+<h2>F.5 ELMO Implementation in CMAQ<a class="headerlink" href="#f-5-elmo-implementation-in-cmaq" title="Link to this heading">#</a></h2>
 <p>ELMO works by putting all of the diagnostic parameters first on the ELMO_LIST table in ELMO_DATA.F. There is also a list of ID numbers (integers) above that table which allow for a master order to be preserved while the order of the parameters in the table and their calculations in ELMO_PROC.F are allowed to move in sequence. The subroutine LOAD_ELMO (ELMO_PROC.F) is called from DRIVER and cycles through the list of selected variables as defined by the interface in the CMAQ Miscellaneous Control file.</p>
 <p>For each variable, the recursive subroutine CALC_ELMO is called to execute the calculation. For many of the calculations, all that is required is an assignment from an already existing diagnostic variable (e.g. RH, STDEV_ACC).
 For the parameters which are linear combinations of CMAQ species or other parameters (e.g. fine-mode nitrate PMF_NO3 = ANO3I + ANO3J), they may be defined in the subroutine MAP_ELMO_COEFFS (in ELMO_PROC.F).
@@ -658,7 +650,7 @@ CMAQ User’s Guide (c) 2022<br></p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>

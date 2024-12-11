@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -31,7 +31,6 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -39,11 +38,9 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e031e9a9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/CMAQ_UG_tutorial_ISAM';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -241,7 +238,7 @@
         
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -328,11 +325,6 @@
     
   </div>
   
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<div id="searchbox"></div></div>
-    </div>
-  
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
@@ -381,12 +373,12 @@
                 <article class="bd-article">
                   
   <section id="cmaq-isam-benchmark-tutorial">
-<h1>CMAQ-ISAM Benchmark Tutorial<a class="headerlink" href="#cmaq-isam-benchmark-tutorial" title="Permalink to this heading">#</a></h1>
+<h1>CMAQ-ISAM Benchmark Tutorial<a class="headerlink" href="#cmaq-isam-benchmark-tutorial" title="Link to this heading">#</a></h1>
 <section id="procedure-to-build-and-run-the-cmaq-isam-model-using-gnu-compiler">
-<h2>Procedure to build and run the CMAQ-ISAM model using gnu compiler:<a class="headerlink" href="#procedure-to-build-and-run-the-cmaq-isam-model-using-gnu-compiler" title="Permalink to this heading">#</a></h2>
+<h2>Procedure to build and run the CMAQ-ISAM model using gnu compiler:<a class="headerlink" href="#procedure-to-build-and-run-the-cmaq-isam-model-using-gnu-compiler" title="Link to this heading">#</a></h2>
 </section>
 <section id="step-1-download-and-run-the-cmaqv5-4-benchmark-case-without-isam-to-confirm-that-your-model-run-is-consistent-with-the-provided-benchmark-output">
-<h2>Step 1: Download and run the CMAQv5.4 benchmark case (without ISAM) to confirm that your model run is consistent with the provided benchmark output.<a class="headerlink" href="#step-1-download-and-run-the-cmaqv5-4-benchmark-case-without-isam-to-confirm-that-your-model-run-is-consistent-with-the-provided-benchmark-output" title="Permalink to this heading">#</a></h2>
+<h2>Step 1: Download and run the CMAQv5.4 benchmark case (without ISAM) to confirm that your model run is consistent with the provided benchmark output.<a class="headerlink" href="#step-1-download-and-run-the-cmaqv5-4-benchmark-case-without-isam-to-confirm-that-your-model-run-is-consistent-with-the-provided-benchmark-output" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="CMAQ_UG_tutorial_benchmark.html"><span class="std std-doc">CMAQ Benchmark Tutorial</span></a></p></li>
 </ul>
@@ -394,7 +386,7 @@
 <p>https://forum.cmascenter.org/</p>
 </section>
 <section id="step-2-read-the-user-guide-chapter-on-integrated-source-apportionment-method">
-<h2>Step 2: Read the User Guide Chapter on Integrated Source Apportionment Method.<a class="headerlink" href="#step-2-read-the-user-guide-chapter-on-integrated-source-apportionment-method" title="Permalink to this heading">#</a></h2>
+<h2>Step 2: Read the User Guide Chapter on Integrated Source Apportionment Method.<a class="headerlink" href="#step-2-read-the-user-guide-chapter-on-integrated-source-apportionment-method" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#../CMAQ_UG_ch11_ISAM.md"><span class="xref myst">CMAQ User’s Guide Chapter on ISAM</span></a></p></li>
 </ul>
@@ -413,7 +405,7 @@
 </div>
 </section>
 <section id="step-3-optional-choose-your-compiler-and-load-it-using-the-module-command-if-it-is-available-on-your-system">
-<h2>Step 3 (optional): choose your compiler, and load it using the module command if it is available on your system<a class="headerlink" href="#step-3-optional-choose-your-compiler-and-load-it-using-the-module-command-if-it-is-available-on-your-system" title="Permalink to this heading">#</a></h2>
+<h2>Step 3 (optional): choose your compiler, and load it using the module command if it is available on your system<a class="headerlink" href="#step-3-optional-choose-your-compiler-and-load-it-using-the-module-command-if-it-is-available-on-your-system" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">avail</span>
 </pre></div>
 </div>
@@ -422,14 +414,14 @@
 </div>
 </section>
 <section id="step-4-optional-install-i-o-api-note-this-assumes-you-have-already-installed-netcdf-c-and-fortran-libraries">
-<h2>Step 4 (optional): Install I/O API (note, this assumes you have already installed netCDF C and Fortran Libraries)<a class="headerlink" href="#step-4-optional-install-i-o-api-note-this-assumes-you-have-already-installed-netcdf-c-and-fortran-libraries" title="Permalink to this heading">#</a></h2>
+<h2>Step 4 (optional): Install I/O API (note, this assumes you have already installed netCDF C and Fortran Libraries)<a class="headerlink" href="#step-4-optional-install-i-o-api-note-this-assumes-you-have-already-installed-netcdf-c-and-fortran-libraries" title="Link to this heading">#</a></h2>
 <p>I/O APIv3.2 supports up to MXFILE3=256 open files, each with up to MXVARS3=2048. ISAM applications configured to calculate source attribution of a large number of sources may exceed this upper limit of model variables, leading to a model crash. To avoid this issue, users may use I/O API version 3.2 “large” that increases MXFILE3 to 512 and MXVARS3 to 16384. Instructions to build this version are found in Chapter 3. Note, using this ioapi-large version is <b>NOT REQUIRED</b> for the CMAQ-ISAM Benchmark Case. If a user needs to use these larger setting for MXFILE3 and MXVAR3 to support their application, the memory requirements will be increased. If needed, this version is available as a zip file from the following address:</p>
 <p>https://www.cmascenter.org/ioapi/download/ioapi-3.2-large-20200828.tar.gz</p>
 <p>Otherwise, use the I/O API version available here:
 https://www.cmascenter.org/ioapi/download/ioapi-3.2-20200828.tar.gz</p>
 </section>
 <section id="step-5-install-cmaq-with-isam">
-<h2>Step 5: Install CMAQ with ISAM<a class="headerlink" href="#step-5-install-cmaq-with-isam" title="Permalink to this heading">#</a></h2>
+<h2>Step 5: Install CMAQ with ISAM<a class="headerlink" href="#step-5-install-cmaq-with-isam" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">-</span><span class="n">b</span> <span class="n">main</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">USEPA</span><span class="o">/</span><span class="n">CMAQ</span><span class="o">.</span><span class="n">git</span> <span class="n">CMAQ_REPO</span>
 </pre></div>
 </div>
@@ -449,10 +441,10 @@ https://www.cmascenter.org/ioapi/download/ioapi-3.2-20200828.tar.gz</p>
 </div>
 </section>
 <section id="step-6-edit-the-config-cmaq-csh-to-specify-the-paths-of-the-ioapi-and-netcdf-libraries">
-<h2>Step 6. Edit the config_cmaq.csh to specify the paths of the ioapi and netCDF libraries<a class="headerlink" href="#step-6-edit-the-config-cmaq-csh-to-specify-the-paths-of-the-ioapi-and-netcdf-libraries" title="Permalink to this heading">#</a></h2>
+<h2>Step 6. Edit the config_cmaq.csh to specify the paths of the ioapi and netCDF libraries<a class="headerlink" href="#step-6-edit-the-config-cmaq-csh-to-specify-the-paths-of-the-ioapi-and-netcdf-libraries" title="Link to this heading">#</a></h2>
 </section>
 <section id="step-7-modify-the-bldit-cctm-csh">
-<h2>Step 7: Modify the bldit_cctm.csh<a class="headerlink" href="#step-7-modify-the-bldit-cctm-csh" title="Permalink to this heading">#</a></h2>
+<h2>Step 7: Modify the bldit_cctm.csh<a class="headerlink" href="#step-7-modify-the-bldit-cctm-csh" title="Link to this heading">#</a></h2>
 <p>Change directory to CCTM/scripts</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">CCTM</span><span class="o">/</span><span class="n">scripts</span>
 </pre></div>
@@ -464,13 +456,13 @@ https://www.cmascenter.org/ioapi/download/ioapi-3.2-20200828.tar.gz</p>
 </div>
 </section>
 <section id="step-8-run-the-bldit-cctm-csh-script">
-<h2>Step 8: Run the bldit_cctm.csh script<a class="headerlink" href="#step-8-run-the-bldit-cctm-csh-script" title="Permalink to this heading">#</a></h2>
+<h2>Step 8: Run the bldit_cctm.csh script<a class="headerlink" href="#step-8-run-the-bldit-cctm-csh-script" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">bldit_cctm</span><span class="o">.</span><span class="n">csh</span> <span class="n">gcc</span> <span class="o">|&amp;</span> <span class="n">tee</span> <span class="n">bldit_cctm_isam</span><span class="o">.</span><span class="n">log</span>
 </pre></div>
 </div>
 </section>
 <section id="step-9-edit-the-emission-control-namelist-to-recognize-the-cmaq-regions-file">
-<h2>Step 9: Edit the Emission Control Namelist to recognize the CMAQ_REGIONS file<a class="headerlink" href="#step-9-edit-the-emission-control-namelist-to-recognize-the-cmaq-regions-file" title="Permalink to this heading">#</a></h2>
+<h2>Step 9: Edit the Emission Control Namelist to recognize the CMAQ_REGIONS file<a class="headerlink" href="#step-9-edit-the-emission-control-namelist-to-recognize-the-cmaq-regions-file" title="Link to this heading">#</a></h2>
 <p>Change directories to the build directory</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">BLD_CCTM_v54_ISAM_gcc</span>
 </pre></div>
@@ -492,7 +484,7 @@ https://www.cmascenter.org/ioapi/download/ioapi-3.2-20200828.tar.gz</p>
 </div>
 </section>
 <section id="step-10-install-the-cmaq-isam-reference-input-and-output-benchmark-data">
-<h2>Step 10: Install the CMAQ-ISAM reference input and output benchmark data<a class="headerlink" href="#step-10-install-the-cmaq-isam-reference-input-and-output-benchmark-data" title="Permalink to this heading">#</a></h2>
+<h2>Step 10: Install the CMAQ-ISAM reference input and output benchmark data<a class="headerlink" href="#step-10-install-the-cmaq-isam-reference-input-and-output-benchmark-data" title="Link to this heading">#</a></h2>
 <p>Download the CMAQ two day reference input and output data from the [CMAS Center Data Warehouse Google Drive](<a class="reference external" href="https://drive.google.com/drive/folders/1AFUB-4kzIXXoZr4hOHNBqRvy9JQ9_MDp?usp=sharing">https://drive.google.com/file/d/1AFUB-4kzIXXoZr4hOHNBqRvy9JQ9_MDp/view?usp=sharing</a>. The CMAQ benchmark test case is a two day simulation for July 1-2 2018 on a 100 column x 105 row x 35 layer 12-km resolution domain over the northeast U.S.</p>
 <ul class="simple">
 <li><p>Use the gdrive command to download the dataset.</p></li>
@@ -510,7 +502,7 @@ tar xvzf CMAQv5.4_2018_12NE3_Benchmark_2Day_Output.tar.gz
 <p>The input files for the CMAQv5.4 ISAM benchmark case are the same as the benchmark inputs for the base model. Output source apportionment files associated with the sample isam_control.txt provided in this release package are included in the benchmark outputs for the base model.</p>
 </section>
 <section id="step-11-edit-the-cmaq-isam-runscript">
-<h2>Step 11: Edit the CMAQ-ISAM runscript<a class="headerlink" href="#step-11-edit-the-cmaq-isam-runscript" title="Permalink to this heading">#</a></h2>
+<h2>Step 11: Edit the CMAQ-ISAM runscript<a class="headerlink" href="#step-11-edit-the-cmaq-isam-runscript" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">run_cctm_Bench_2018_12NE3</span><span class="o">.</span><span class="n">csh</span> <span class="n">run_cctm_Bench_2018_12NE3</span><span class="o">.</span><span class="n">ISAM</span><span class="o">.</span><span class="n">csh</span>
 <span class="n">gedit</span> <span class="n">run_cctm_Bench_2018_12NE3</span><span class="o">.</span><span class="n">ISAM</span><span class="o">.</span><span class="n">csh</span>
 </pre></div>
@@ -535,7 +527,7 @@ setenv ISAM_REGIONS $INPDIR/GRIDMASK_STATES_12NE3.nc
 </div>
 </section>
 <section id="step-12-verify-that-the-run-was-successful">
-<h2>Step 12: Verify that the run was successful<a class="headerlink" href="#step-12-verify-that-the-run-was-successful" title="Permalink to this heading">#</a></h2>
+<h2>Step 12: Verify that the run was successful<a class="headerlink" href="#step-12-verify-that-the-run-was-successful" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>look for the output directory</p></li>
 </ul>
@@ -549,7 +541,7 @@ setenv ISAM_REGIONS $INPDIR/GRIDMASK_STATES_12NE3.nc
 <p>|&gt;—   PROGRAM COMPLETED SUCCESSFULLY   —&lt;|</p>
 </section>
 <section id="step-13-compare-output-with-the-2-day-benchmark-outputs-provided-on-the-google-drive">
-<h2>Step 13: Compare output with the 2 day benchmark outputs provided on the google drive<a class="headerlink" href="#step-13-compare-output-with-the-2-day-benchmark-outputs-provided-on-the-google-drive" title="Permalink to this heading">#</a></h2>
+<h2>Step 13: Compare output with the 2 day benchmark outputs provided on the google drive<a class="headerlink" href="#step-13-compare-output-with-the-2-day-benchmark-outputs-provided-on-the-google-drive" title="Link to this heading">#</a></h2>
 <p>The following ISAM output files are generated in addition to the standard CMAQ output files.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CCTM_SA_DRYDEP_v54_ISAM_gcc_Bench_2018_12NE3_2day_ISAM_20180702</span><span class="o">.</span><span class="n">nc</span>
 <span class="n">CCTM_SA_WETDEP_v54_ISAM_gcc_Bench_2018_12NE3_2day_ISAM_20180702</span><span class="o">.</span><span class="n">nc</span>
@@ -650,7 +642,7 @@ setenv ISAM_REGIONS $INPDIR/GRIDMASK_STATES_12NE3.nc
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>

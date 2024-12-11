@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -31,7 +31,6 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -39,11 +38,9 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e031e9a9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Users_Guide/CMAQ_UG_ch01_overview';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -241,7 +238,7 @@
         
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -328,11 +325,6 @@
     
   </div>
   
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<div id="searchbox"></div></div>
-    </div>
-  
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
@@ -384,13 +376,13 @@
 <p><a class="reference internal" href="README.html"><span class="std std-doc">Home</span></a> - <a class="reference internal" href="CMAQ_UG_ch02_program_structure.html"><span class="std std-doc">Next Chapter &gt;&gt;</span></a></p>
 <!-- END COMMENT -->
 <section id="overview">
-<h1>1. Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h1>
+<h1>1. Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h1>
 <section id="disclaimer">
-<h2>Disclaimer<a class="headerlink" href="#disclaimer" title="Permalink to this heading">#</a></h2>
+<h2>Disclaimer<a class="headerlink" href="#disclaimer" title="Link to this heading">#</a></h2>
 <p>The information in this operational guidance document has been funded wholly or in part by the United States Environmental Protection Agency (EPA). The draft version of this document has not been subjected to the Agency’s peer and administrative review, nor has it been approved for publication as an EPA document. The draft document has been subjected to review by the Community Modeling and Analysis System Center only; this content has not yet been approved by the EPA. Mention of trade names or commercial products does not constitute endorsement or recommendation for use.</p>
 </section>
 <section id="introduction">
-<h2>1.1 Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>1.1 Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>Under the authority of the Clean Air Act, the U.S. Environmental Protection Agency (EPA) has established National Ambient Air Quality Standards (NAAQS). These standards are designed to protect human health and the environment from high levels of criteria pollutants, such as ozone and particulate matter. Meeting the NAAQS often requires the use of controls on sources of air pollutants. The complex nature of air pollution scenarios requires control strategies to be effective for a variety of air pollutants, geographic regions, and scales. The design of these control strategies is guided by comprehensive air pollution modeling systems which are applied to assess the ability of various control strategies to improve air quality in a cost-effective manner.</p>
 <p>Because some emission sources contribute to the ambient levels of more than one pollutant and can affect an entire region on various time scales, an integrated modeling approach capable of handling multiple air pollutants and spatiotemporal scales is needed to identify cost-effective control strategies that improve overall air quality. The <a class="reference external" href="http://www.epa.gov/cmaq">EPA Community Multiscale Air Quality (CMAQ) modeling system</a> was formulated and designed to facilitate extensions needed to examine emerging linked multi-pollutants air pollution issues. The source code for CMAQ is available through a publicly-accessible, version-controlled git repository on <a class="reference internal" href="#www.github.com/usepa/cmaq"><span class="xref myst">GitHub</span></a> where interested parties may obtain the open-source software and contribute to enhancements of the model. CMAQ is designed for applications ranging from regulatory and policy analysis to probing and understanding the complex interactions of atmospheric chemistry and physics. It is a three-dimensional Eulerian (i.e., gridded) atmospheric chemistry and transport modeling system that simulates ozone, particulate matter (PM), toxic airborne pollutants, visibility, and acidic and nutrient pollutant species throughout the troposphere. Designed as a “one-atmosphere” model, CMAQ can address the complex couplings among several air quality issues simultaneously across spatial scales ranging from urban to hemispheric.</p>
 <p>Air quality models integrate our understandings of the complex processes that affect the concentrations of pollutants in the atmosphere. Establishing the relationships among meteorology, emissions of chemical species, chemical transformations, and removal processes in the context of atmospheric pollutants is the fundamental goal of an air quality model (Seinfeld and Pandis, 1998). CMAQ uses detailed mathematical representations of coupled atmospheric dynamical, chemical, and physical processes to describe the fate of airborne pollutants. The model is formulated to conserve mass in the 3-D atmosphere within the modeled domain. The resultant partial differential governing equations are numerically solved over a 3-D grid discretizing the geographic domain of interest. A model grid is an <em>x-y-z</em> array that is fixed in space and covers a prescribed domain (i.e., a geographic area of interest). CMAQ therefore belongs to the Eulerian class of mathematical models that calculate a mass balance over each discrete grid volume by accounting for transport across the boundaries of the grid volume and relevant source and sink terms within the grid volume over a given time period. As a mathematical framework for simulating the interactions of multiple complex atmospheric processes, CMAQ thus requires two primary types of inputs: meteorological information, and rates of emissions from a variety of anthropogenic and natural sources of primary pollutant species of interest or those that serve as precursors for formation of other pollutants of interest.</p>
@@ -405,7 +397,7 @@
 <p>To obtain inputs on emissions, CMAQ relies on an emissions processor to estimate the magnitude, location, and temporal variability of pollution sources. Open-source processors such as the Sparse Matrix Operator Kernel Emissions (<a class="reference external" href="https://www.cmascenter.org/smoke/">SMOKE</a>) processor (IE, 2008) are available for computing emissions inputs to CMAQ from emissions inventories. These emissions inputs must be specified on CMAQ’s horizontal and vertical grid structure and cover at least the time period of the air quality model simulation. The emission inputs must also represent chemical species that conform with the gas and aerosol chemical mechanism employed in the CMAQ configuration; currently supported gas-phase mechanisms include recent versions of the Carbon Bond mechanism, the Statewide Air Pollution Research Center (SAPRC) mechanism, and the Regional Atmospheric Chemistry Mechanism (RACM). Additional details about the gas- and aerosol-phase chemistry in CMAQ are provided in <a class="reference internal" href="CMAQ_UG_ch06_model_configuration_options.html"><span class="std std-doc">Chapter 6</span></a>.</p>
 </section>
 <section id="features">
-<h2>1.2 Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
+<h2>1.2 Features<a class="headerlink" href="#features" title="Link to this heading">#</a></h2>
 <p>From inception, CMAQ was designed to facilitate community modeling. “Community modeling” is the concept that air quality model development should be a collective effort by a broad community of developers, thereby leveraging the cross-disciplinary expertise needed to keep the physical, numerical, and computational components of the modeling system at the state-of-the-science. By adopting a standardized modeling architecture, the air quality modeling community can focus its efforts on creating software enhancements and new science modules. CMAQ is designed to meet the needs of the multiple groups contained within the air quality modeling community: research and regulatory modelers, algorithm and science module developers, air quality forecasters, and planners and policy makers. While each of these groups has distinct individual requirements for CMAQ, they also share a common need for an efficient, transparent, and scientifically credible tool to simulate the air pollution phenomena. To address these individual and common needs, CMAQ development and maintenance have the following goals:</p>
 <ol class="arabic simple">
 <li><p><em>Scientific Integrity</em>. Ensure that the model remains state-of-the-science through subjecting it to <a class="reference external" href="https://www.epa.gov/cmaq/cmaq-publications-and-peer-review">regular peer reviews</a></p></li>
@@ -427,7 +419,7 @@
 <p>The CMAQ modeling system is being developed and maintained under the leadership of the <a class="reference external" href="https://www.epa.gov/aboutepa/about-office-research-and-development-ord">EPA Office of Research and Development</a> in Research Triangle Park, NC. CMAQ represents nearly three decades of research in atmospheric modeling and has been in active development since the early 1990s. The first public release of CMAQ was in 1998 to enable use by air quality scientists, policy makers, and stakeholder groups to address multiscale, multipollutant air quality concerns. Since then, through a series of phased development activities, new versions of the CMAQ modeling system are periodically released for use by the growing user community.</p>
 </section>
 <section id="diagnostics-tools-and-instrumented-models">
-<h2>1.3 Diagnostics, Tools, and Instrumented Models<a class="headerlink" href="#diagnostics-tools-and-instrumented-models" title="Permalink to this heading">#</a></h2>
+<h2>1.3 Diagnostics, Tools, and Instrumented Models<a class="headerlink" href="#diagnostics-tools-and-instrumented-models" title="Link to this heading">#</a></h2>
 <p>In addition to the air pollutant concentration and deposition fields output by CMAQ, the modeling system can also be instrumented to compute and output additional diagnostic information that can be used to probe the workings of the atmosphere as well as inform and guide policy inferences. These instrumented configurations include:</p>
 <ol class="arabic simple">
 <li><p><em><a class="reference internal" href="CMAQ_UG_ch11_ISAM.html"><span class="std std-doc">Integrated Source Apportionment Method (ISAM)</span></a></em>: Estimates source attribution information for user specified ozone and particulate matter precursors modeled in CMAQ. Such apportionment information could be used to gain insight on, for example, how much of the ozone in an urban area was formed due to nitrogen oxides emitted from motor vehicles in a neighboring state?</p></li>
@@ -440,7 +432,7 @@
 </ol>
 </section>
 <section id="new-features-in-cmaqv5-4">
-<h2>1.4 New Features in CMAQv5.4<a class="headerlink" href="#new-features-in-cmaqv5-4" title="Permalink to this heading">#</a></h2>
+<h2>1.4 New Features in CMAQv5.4<a class="headerlink" href="#new-features-in-cmaqv5-4" title="Link to this heading">#</a></h2>
 <p>Building on previous versions of the modeling system, numerous updates to the process science and model structure have been implemented in CMAQv5.4 including:</p>
 <ol class="arabic simple">
 <li><p>Gas and aerosol chemistry mechanisms have been updated to include more recent scientific understanding. The Carbon Bond mechanism was updated to version CB6r5. The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) is introduced with detailed representation of the chemistry of the Reactive Organic Carbon system including a fully bottom-up implementation of SOA formation from volatile precursors.</p></li>
@@ -454,11 +446,11 @@
 <p>Collectively, these updates improve model capabilities for addressing local nonattainment issues, quantifying natural contributions versus anthropogenic enhancements, enabling examination of regional air pollution in context of changing global emissions, and for cross-media applications. Additionally, changes to model structure in CMAQv5.4 are oriented towards improving transparency of model assumptions, improved diagnostic tools for model probing, and improvements in overall numerical and computational efficiency of the modeling system.</p>
 </section>
 <section id="system-recommendations">
-<h2>1.5 System Recommendations<a class="headerlink" href="#system-recommendations" title="Permalink to this heading">#</a></h2>
+<h2>1.5 System Recommendations<a class="headerlink" href="#system-recommendations" title="Link to this heading">#</a></h2>
 <p>CMAQ is a comprehensive air pollution modeling system whose source code is written mostly in Fortran. CMAQ execution is typically performed on Linux based systems. The hardware configuration of such a system depends on the domain size, grid resolution and simulation duration. Since typical input and output data sets for CMAQ entail three dimensional descriptions of the dynamical and chemical state of the simulated atmosphere, these data sets could require upwards of several gigabytes of disk storage per simulation day.</p>
 </section>
 <section id="cmaq-support-resources">
-<h2>1.6 CMAQ Support Resources<a class="headerlink" href="#cmaq-support-resources" title="Permalink to this heading">#</a></h2>
+<h2>1.6 CMAQ Support Resources<a class="headerlink" href="#cmaq-support-resources" title="Link to this heading">#</a></h2>
 <p>Extensive information on the model’s scientific basis, applications, publications, peer-review, and instructions to download the CMAQ modeling system are available at https://www.epa.gov/cmaq. To support the CMAQ user community, EPA currently funds the University of North Carolina at Chapel Hill to host the <a class="reference external" href="http://www.cmascenter.org/">Community Modeling and Analysis System (CMAS) Center</a>, which maintains a user help desk, provides new user training, and promotes the dissemination and use of the modeling system through exploration of new technologies and platforms (e.g., cloud-based). The CMAS Center offers an e-mail help desk and an <a class="reference external" href="https://forum.cmascenter.org/">online forum</a> to allow users to connect with model developers and other model users around the world.</p>
 <hr class="docutils" />
 <!-- BEGIN COMMENT -->
@@ -554,7 +546,7 @@ CMAQ User’s Guide (c) 2022<br></p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>

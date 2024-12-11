@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -31,7 +31,6 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -39,11 +38,9 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e031e9a9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Users_Guide/CMAQ_UG_ch02_program_structure';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -241,7 +238,7 @@
         
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -328,11 +325,6 @@
     
   </div>
   
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<div id="searchbox"></div></div>
-    </div>
-  
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
@@ -384,13 +376,13 @@
 <p><a class="reference internal" href="CMAQ_UG_ch01_overview.html"><span class="std std-doc">&lt;&lt; Previous Chapter</span></a> - <a class="reference internal" href="README.html"><span class="std std-doc">Home</span></a> - <a class="reference internal" href="CMAQ_UG_ch03_preparing_compute_environment.html"><span class="std std-doc">Next Chapter &gt;&gt;</span></a></p>
 <!-- END COMMENT -->
 <section id="program-structure">
-<h1>2. Program Structure<a class="headerlink" href="#program-structure" title="Permalink to this heading">#</a></h1>
+<h1>2. Program Structure<a class="headerlink" href="#program-structure" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2>2.1 Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>2.1 Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>The CMAQ system is a suite of software programs that work in concert to estimate ozone, particulate matter, toxic compounds, and acid deposition in addition to other atmospheric pollutants of interest.  As a framework for simulating the interactions of multiple complex atmospheric processes, CMAQ requires many types of inputs including meteorological information, primary pollutant emission rates, chemical properties and reactions, and land properties that are influential for exchange of pollutants with the atmosphere.</p>
 </section>
 <section id="cmaq-core-programs">
-<h2>2.2 CMAQ Core Programs<a class="headerlink" href="#cmaq-core-programs" title="Permalink to this heading">#</a></h2>
+<h2>2.2 CMAQ Core Programs<a class="headerlink" href="#cmaq-core-programs" title="Link to this heading">#</a></h2>
 <p>Weather conditions such as the changes in temperature, winds, cloud formation, and precipitation rates are the primary physical driving forces for transport in the atmosphere.  These conditions are represented in air quality model simulations using output from regional-scale numerical meteorology models, such as the <a class="reference external" href="https://www.mmm.ucar.edu/weather-research-and-forecasting-model">Weather Research and Forecasting (WRF) Model</a>.  To obtain inputs on emissions, CMAQ relies on the open-source Sparse Matrix Operator Kernel Emissions <a class="reference external" href="http://www.smoke-model.org">(SMOKE)</a> model to estimate the magnitude and location of pollution sources. Another open-source system, the
 <a class="reference external" href="https://www.cmascenter.org/fest-c/">Fertilizer Emission Scenario Tool for CMAQ (FEST-C)</a> is used to run the Environmental Policy Integrated Climate (EPIC) model to generate agricultural land nitrogen and soil information needed for CMAQ bi-directional NH<sub>3</sub> modeling.</p>
 <p>The structure of the CMAQ system is illustrated in Fig. 2-1. The main CMAQ program, the CMAQ Chemistry Transport Model (CCTM), which is often referred to simply as CMAQ, contains the principal equations used for predicting pollutant concentrations given the inputs discussed above. These partial differential equations are designed for mass conservation and consider a myriad of important processes such as emissions, chemical reaction, uptake to clouds and precipitation, and dry deposition.  An overview of the science configuration options in CMAQ can be found in <a class="reference internal" href="CMAQ_UG_ch06_model_configuration_options.html"><span class="std std-doc">Chapter 6</span></a>.  Instructions for compiling and running the CCTM are covered in Chapters 3 (<a class="reference internal" href="CMAQ_UG_ch03_preparing_compute_environment.html"><span class="std std-doc">Preparing Compute Environment</span></a>), 4 (<a class="reference internal" href="CMAQ_UG_ch04_model_inputs.html"><span class="std std-doc">Model Inputs</span></a>) and 5 (<a class="reference internal" href="CMAQ_UG_ch05_running_a_simulation.html"><span class="std std-doc">Running a CMAQ Simulation</span></a>).</p>
@@ -399,15 +391,15 @@
 <p>Several important tools are provided with the CMAQ system to handle the preparation of important input data. The meteorology data provided by the upstream meteorological model (e.g. WRF) is prepared for input to the CCTM by the Meteorology-Chemistry Interface Processor (MCIP). The CCTM also requires inputs for specifying the initial and boundary conditions of each chemical species treated by the model. These data may be processed and prepared for use by the ICON and BCON tools, respectively.  Documentation on compiling and running MCIP, ICON and BCON is available under the <a class="reference internal" href="#../../PREP/README.md"><span class="xref myst">PREP</span></a> folder.</p>
 </section>
 <section id="online-emissions-options">
-<h2>2.3 Online Emissions Options<a class="headerlink" href="#online-emissions-options" title="Permalink to this heading">#</a></h2>
+<h2>2.3 Online Emissions Options<a class="headerlink" href="#online-emissions-options" title="Link to this heading">#</a></h2>
 <p>CMAQ includes several “online” emissions options to support coupling between meteorology and chemistry processes, and to facilitate operational air quality forecast modeling. The emissions streams available for running online in CMAQ are: biogenics, wind-blown dust, sea spray, marine gas emissions, and nitrogen oxides from lightning. One important advantage of incorporating these processes directly in a CCTM simulation is that emissions are meteorologically modulated at the synchronization (chemistry) time step rather than being linearly time-interpolated within each simulation hour.  In addition, disk space may be saved, because a 3‑D emissions file is no longer needed for elevated point sources.</p>
 </section>
 <section id="post-processing-tools">
-<h2>2.4 Post-processing Tools<a class="headerlink" href="#post-processing-tools" title="Permalink to this heading">#</a></h2>
+<h2>2.4 Post-processing Tools<a class="headerlink" href="#post-processing-tools" title="Link to this heading">#</a></h2>
 <p>The CMAQ release includes a set of Fortran programs for manipulating CMAQ input and output files including matching model output to observed air quality data.  Information on these post-processing tools is available under the <a class="reference internal" href="#../../POST/README.md"><span class="xref myst">POST</span></a> folder.  There are many additional resources available for visualizing and evaluating CMAQ input and output which are described in <a class="reference internal" href="CMAQ_UG_ch08_analysis_tools.html"><span class="std std-doc">Chapter 8</span></a>.</p>
 </section>
 <section id="utilities-for-developers">
-<h2>2.5 Utilities for Developers<a class="headerlink" href="#utilities-for-developers" title="Permalink to this heading">#</a></h2>
+<h2>2.5 Utilities for Developers<a class="headerlink" href="#utilities-for-developers" title="Link to this heading">#</a></h2>
 <p>The CMAQ release includes several optional utilities for model developers. These tools may be useful for advanced users who wish to use other chemical mechanisms and/or a different set of photolysis reaction input data. Chemical reaction data is processed by the Chemical Mechanism Compiler (<em>chemmech</em>) for all chemical reaction solver approaches. This tool needs chemical namelists (e.g. GC_NAMELIST, AE_NAMELIST, etc) in order to run, and these namelists can be modified directly with a text editor or converted to CSV with the namelist converter <em>nml</em>. After running chemmech, to then generate files specifically for the Euler Backward Iterative (EBI) solver approach, the <em>create_ebi</em> is provided. Finally the Photolysis Preprocessor (<em>inline_phot_preproc</em>) provides support for generating photolysis rate input to customize chemical mechanisms.  In addition, the CMAQ repository includes software for generating Makefiles necessary for compiling the CCTM and other components. This <em>bldmake</em> utility is designed to account for user options, diagnose dependencies in source code and produce a Makefile ready to build executable files.  Documentation for each utilitiy program is provided under the <a class="reference internal" href="#../../UTIL/README.md"><span class="xref myst">UTIL</span></a> folder.</p>
 <!-- BEGIN COMMENT -->
 <p><a class="reference internal" href="CMAQ_UG_ch01_overview.html"><span class="std std-doc">&lt;&lt; Previous Chapter</span></a> - <a class="reference internal" href="README.html"><span class="std std-doc">Home</span></a> - <a class="reference internal" href="CMAQ_UG_ch03_preparing_compute_environment.html"><span class="std std-doc">Next Chapter &gt;&gt;</span></a></p>
@@ -496,7 +488,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>

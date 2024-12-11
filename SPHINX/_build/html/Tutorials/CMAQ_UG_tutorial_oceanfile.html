@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -31,7 +31,6 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -39,11 +38,9 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e031e9a9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/CMAQ_UG_tutorial_oceanfile';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -241,7 +238,7 @@
         
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -328,11 +325,6 @@
     
   </div>
   
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<div id="searchbox"></div></div>
-    </div>
-  
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
@@ -381,9 +373,9 @@
                 <article class="bd-article">
                   
   <section id="cmaq-tutorial">
-<h1>CMAQ Tutorial<a class="headerlink" href="#cmaq-tutorial" title="Permalink to this heading">#</a></h1>
+<h1>CMAQ Tutorial<a class="headerlink" href="#cmaq-tutorial" title="Link to this heading">#</a></h1>
 <section id="creating-an-ocean-file-for-input-to-cmaq">
-<h2>Creating an OCEAN file for input to CMAQ<a class="headerlink" href="#creating-an-ocean-file-for-input-to-cmaq" title="Permalink to this heading">#</a></h2>
+<h2>Creating an OCEAN file for input to CMAQ<a class="headerlink" href="#creating-an-ocean-file-for-input-to-cmaq" title="Link to this heading">#</a></h2>
 <p>Purpose: This tutorial describes how to create an ocean mask file that defines the fraction of each grid cell covered by open ocean or surf zone in the CMAQ modeling domain and for adding the variables DMS and CHLO to the ocean file.</p>
 <hr class="docutils" />
 <p>The CMAQ sea spray emissions module requires the input of an ocean mask file (OCEAN). OCEAN is a time-independent I/O API file that identifies the fractional [0-1] coverage in each model grid cell allocated to open ocean (OPEN) or surf zone (SURF). The CCTM uses this coverage information to calculate sea spray emission fluxes from the model grid cells online during a CCTM run.</p>
@@ -401,13 +393,13 @@
 </section>
 </section>
 <section id="option-1-create-ocean-file-from-shapefile-of-domain">
-<h1>OPTION 1: Create OCEAN file from shapefile of domain<a class="headerlink" href="#option-1-create-ocean-file-from-shapefile-of-domain" title="Permalink to this heading">#</a></h1>
+<h1>OPTION 1: Create OCEAN file from shapefile of domain<a class="headerlink" href="#option-1-create-ocean-file-from-shapefile-of-domain" title="Link to this heading">#</a></h1>
 <section id="step-1-download-the-spatial-allocator">
-<h2>STEP 1: Download the Spatial Allocator</strong><a class="headerlink" href="#step-1-download-the-spatial-allocator" title="Permalink to this heading">#</a></h2>
+<h2>STEP 1: Download the Spatial Allocator</strong><a class="headerlink" href="#step-1-download-the-spatial-allocator" title="Link to this heading">#</a></h2>
 <p>The Spatial Allocator (SA) tool can be downloaded from the CMAS Center at the following link: https://www.cmascenter.org/sa-tools/. Login and follow the download and installation instructions.</p>
 </section>
 <section id="step-2-create-the-ocean-file">
-<h2>STEP 2: Create the OCEAN file<a class="headerlink" href="#step-2-create-the-ocean-file" title="Permalink to this heading">#</a></h2>
+<h2>STEP 2: Create the OCEAN file<a class="headerlink" href="#step-2-create-the-ocean-file" title="Link to this heading">#</a></h2>
 <p>If your domain is in the U.S., there is a shapefile included with the SA tool in the data directory (surfzone_poly_st.shp). If your domain is outside the U.S., you will need a shapefile of your domain. See the surfzone_poly_st.shp for a template of the attributes required by the Spatial Allocator for generating an OCEAN file.</p>
 <p>Using the sample script <code class="docutils literal notranslate"><span class="pre">alloc_srf_zone_to_oceanfile.csh</span></code> (located in the <strong>scripts</strong> directory of the SA tool) as a guide, customize a script to run the SA executable on your machine.</p>
 <p>The default alloc_srf_zone_to_oceanfile.csh script is shown below. To customize this script for a new domain, set the <code class="docutils literal notranslate"><span class="pre">GRIDDESC</span></code> variable to point to an I/O API grid description file that includes the new domain definition. Set <code class="docutils literal notranslate"><span class="pre">OUTPUT_GRID_NAME</span></code> to the name of the new grid as defined in the GRIDDESC file. If needed, change the <code class="docutils literal notranslate"><span class="pre">OUTPUT_FILE_MAP_PRJN</span></code> variable to the projection definition for the new domain.</p>
@@ -459,7 +451,7 @@ $TIME $EXE
 <p>Run the script and check the output directory designated in the run script for the new OCEAN file.</p>
 </section>
 <section id="step-3-add-dms-and-chlo-to-the-ocean-file">
-<h2>STEP 3: Add DMS and CHLO to the OCEAN file<a class="headerlink" href="#step-3-add-dms-and-chlo-to-the-ocean-file" title="Permalink to this heading">#</a></h2>
+<h2>STEP 3: Add DMS and CHLO to the OCEAN file<a class="headerlink" href="#step-3-add-dms-and-chlo-to-the-ocean-file" title="Link to this heading">#</a></h2>
 <p>This section uses a Jupyter Notebook. Jupyter Notebooks can be run on cloud-based systems like SageMaker, Binder, Google Colab, or any linux system with Jupyter installed (https://jupyter.org/install).</p>
 <p>The Jupyter notebook CMAQ_DMS_ChlorA.ipynb (located in the <a class="reference internal" href="#../../../PREP"><span class="xref myst">PREP</span></a> directory) can be used to add DMS and CHLO to the existing OCEAN file. See the tool’s <a class="reference internal" href="#../../../PREP/PYTOOLS/dmschlo/README.md"><span class="xref myst">README</span></a> for instructions on how to configure an environment for this notebook. The notebook requires setting the following 6 variables: dom, ocnintmpl, ocnouttmpl, gdpath, overwrite, getlatestchlo.</p>
 <p>Variable “dom” is the output domain which can be defined as follows (12US1 is the output domain name):
@@ -478,12 +470,12 @@ getlatestchlo = False</p>
 </section>
 </section>
 <section id="option-2-run-without-an-ocean-input-file-in-cmaqv5-3-and-later">
-<h1>OPTION 2: Run without an OCEAN input file in CMAQv5.3 and later<a class="headerlink" href="#option-2-run-without-an-ocean-input-file-in-cmaqv5-3-and-later" title="Permalink to this heading">#</a></h1>
+<h1>OPTION 2: Run without an OCEAN input file in CMAQv5.3 and later<a class="headerlink" href="#option-2-run-without-an-ocean-input-file-in-cmaqv5-3-and-later" title="Link to this heading">#</a></h1>
 <p>If your modeling domain does not contain any coastal area, you can run CMAQ without an OCEAN input file. This will turn off both sea-spray emissions and the first-order decay of ozone over the ocean. To do this, set the run script option “CTM_OCEAN_CHEM” to “N” or “F”.</p>
 <p>If using cb6r5_ae7_aq and you prefer not to use DMS chemistry, the m3fake approach below can be adapted to create a DMS variable with zero values.</p>
 </section>
 <section id="option-3-zero-out-sea-spray-emissions-in-cmaqv5-2-or-earlier">
-<h1>OPTION 3: Zero Out Sea-Spray Emissions in CMAQv5.2 or earlier<a class="headerlink" href="#option-3-zero-out-sea-spray-emissions-in-cmaqv5-2-or-earlier" title="Permalink to this heading">#</a></h1>
+<h1>OPTION 3: Zero Out Sea-Spray Emissions in CMAQv5.2 or earlier<a class="headerlink" href="#option-3-zero-out-sea-spray-emissions-in-cmaqv5-2-or-earlier" title="Link to this heading">#</a></h1>
 <p>Even if your modeling domain does not contain areas of sea spray emissions, you need to provide an OCEAN file to the CCTM. You can create a dummy OCEAN file for domains with no sea spray sources or if you prefer to set sea spray emissions to zero. Copy and run the following I/O API Tool m3fake script to create an OCEAN file containing zeros for the open ocean and surf zone coverage fractions. Using this file will effectively configure a CCTM simulation with zero sea spray emissions.</p>
 <p>Note that you will need the <a class="reference internal" href="#www.cmascenter.org/ioapi"><span class="xref myst">I/O API Tools</span></a> installed and compiled on your Linux system to use this script.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/csh -f
@@ -608,7 +600,7 @@ EOF
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>
