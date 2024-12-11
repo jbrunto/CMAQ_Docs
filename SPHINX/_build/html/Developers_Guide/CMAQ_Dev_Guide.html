@@ -400,9 +400,9 @@ The information contained here should be read prior to starting a project within
 </section>
 <section id="summary-of-developer-workflow">
 <h1>Summary of Developer Workflow<a class="headerlink" href="#summary-of-developer-workflow" title="Link to this heading">#</a></h1>
-<p>The public CMAQ release repository is located on GitHub (<a class="github reference external" href="https://github.com/USEPA/CMAQ">USEPA/CMAQ</a>). Users should refer to this repository for bug fixes, issues, documentation and major releases for CMAQ. Users can use the watch and star buttons on the public CMAQ release repository page to be notified of updates and changes. Developers interested in submitting code changes should read this Developer Guide and then contact the EPA CMAQ development team as soon as possible to discuss their motivation and plans for submitting a code change (<a class="reference external" href="mailto:CMAQ_Team&#37;&#52;&#48;epa&#46;gov">CMAQ_Team<span>&#64;</span>epa<span>&#46;</span>gov</a>).</p>
+<p>The public CMAQ release repository is located on GitHub (<a class="github reference external" href="https://github.com/USEPA/CMAQ">USEPA/CMAQ</a>). Users should refer to this repository for bug fixes, issues, documentation and major releases for CMAQ. Users can use the watch and star buttons on the public CMAQ release repository page to be notified of updates and changes. Developers interested in submitting code changes should read this Developer Guide and then contact the EPA CMAQ development team as soon as possible to discuss their motivation and plans for submitting a code change (CMAQ_Team&#64;epa.gov).</p>
 <p>In order to facilitate incorporation of a contribution, developers should follow the instructions on code requirements and repository layout as described in the <a class="reference internal" href="Code_Management.html"><span class="std std-doc">code management instructions</span></a>.  Documentation of the assumptions and results of the new code is a very important part of a meaningful code submission. If the submission involves a detailed new feature, developers are encouraged to publish the use of their feature in a peer-reviewed journal before submission.</p>
-<p>To begin, the developer should fork the public CMAQ release repository within GitHub. This will create a copy of the public CMAQ release repository under your name (<a class="reference external" href="https://github.com/%7Buser_name%7D/CMAQ">https://github.com/{user_name}/CMAQ</a>). Developers should use standard git commands to clone the appropriate version branch (5.3, 5.2.1, 5.2, ..) from your forked repository to your local machine and then to create a new feature or bug fix branch. Developers will add, commit and push changes to their new feature or bug fix branch on their forked repository, not to the public release version of the repository.</p>
+<p>To begin, the developer should fork the public CMAQ release repository within GitHub. This will create a copy of the public CMAQ release repository under your name (https://github.com/{user_name}/CMAQ). Developers should use standard git commands to clone the appropriate version branch (5.3, 5.2.1, 5.2, ..) from your forked repository to your local machine and then to create a new feature or bug fix branch. Developers will add, commit and push changes to their new feature or bug fix branch on their forked repository, not to the public release version of the repository.</p>
 <p>Once a feature or bug fix branch meets requirements for code consistency, benchmark testing, model output evaluation, and documentation including release notes, the developer may submit a pull request from their local feature or bug fix branch of their fork of the CMAQ repository on Github to the CMAQ public repository. This process is described in the Nuts and Bolts section below, and in the following <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on-github">tutorial</a>, which also provides instructions on how to keep a fork up to date with changes on the public release repository.</p>
 <p>Contributions will undergo a thorough code review within EPA before being incorporated in the next model release. Depending on the size, scope, and importance of the contribution, the CMAQ development team may or may not agree to support the update through future releases. Decisions regarding ongoing support will be made on a case-by-case basis with input from the developer who submits the contribution.
 The following sections outline the CMAQ code development and review process in greater detail.</p>
@@ -452,12 +452,12 @@ v14.3     (Stable Public Release)
 <h2>Nuts and Bolts<a class="headerlink" href="#nuts-and-bolts" title="Link to this heading">#</a></h2>
 <p>As described above, the CMAQ development process follows a “Forking Workflow.” Atlassian has provided a helpful <a class="reference external" href="https://www.atlassian.com/git/tutorials/comparing-workflows#forking-workflow">explanation</a>. Developers should follow the guidance at <a class="reference external" href="https://help.github.com/">GitHub Help</a> and <a class="reference external" href="https://www.atlassian.com/git/tutorials/what-is-version-control">Atlassian</a> in order to:</p>
 <ul class="simple">
-<li><p>fork the CMAQ repo: <a class="reference external" href="https://help.github.com/articles/fork-a-repo/#platform-linux">https://help.github.com/articles/fork-a-repo/#platform-linux</a></p></li>
-<li><p>clone their newly-created fork: <a class="reference external" href="https://help.github.com/articles/cloning-a-repository/#platform-linux">https://help.github.com/articles/cloning-a-repository/#platform-linux</a></p></li>
-<li><p>create a feature branch: <a class="reference external" href="https://www.atlassian.com/git/tutorials/using-branches">https://www.atlassian.com/git/tutorials/using-branches</a></p></li>
-<li><p>add and commit changes to the new feature branch: <a class="reference external" href="https://www.atlassian.com/git/tutorials/saving-changes">https://www.atlassian.com/git/tutorials/saving-changes</a></p></li>
-<li><p>push the feature branch to the forked repo: <a class="reference external" href="https://help.github.com/articles/pushing-to-a-remote/">https://help.github.com/articles/pushing-to-a-remote/</a></p></li>
-<li><p>submit a pull request to the public CMAQ repo: <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/">https://help.github.com/articles/creating-a-pull-request-from-a-fork/</a></p></li>
+<li><p>fork the CMAQ repo: https://help.github.com/articles/fork-a-repo/#platform-linux</p></li>
+<li><p>clone their newly-created fork: https://help.github.com/articles/cloning-a-repository/#platform-linux</p></li>
+<li><p>create a feature branch: https://www.atlassian.com/git/tutorials/using-branches</p></li>
+<li><p>add and commit changes to the new feature branch: https://www.atlassian.com/git/tutorials/saving-changes</p></li>
+<li><p>push the feature branch to the forked repo: https://help.github.com/articles/pushing-to-a-remote/</p></li>
+<li><p>submit a pull request to the public CMAQ repo: https://help.github.com/articles/creating-a-pull-request-from-a-fork/</p></li>
 </ul>
 <p>Developers should run and test their contribution before submitting the pull request so that the results of the test can be included in the documentation of the pull request.</p>
 </section>
@@ -478,7 +478,7 @@ Examples of small, but important guidelines include:</p>
 </section>
 <section id="benchmark-testing">
 <h3>Benchmark Testing<a class="headerlink" href="#benchmark-testing" title="Link to this heading">#</a></h3>
-<p>Dataset: The U.S. EPA Southeast US 12km domain July 1-14, 2016 testing dataset is provided with the CMAQv5.3 Release. This dataset is distributed for benchmarking and testing the model installation. It is available from CMAS; please go to <a class="reference external" href="https://www.epa.gov/cmaq/cmaq-inputs-and-test-case-data">https://www.epa.gov/cmaq/cmaq-inputs-and-test-case-data</a> for instructions on how to download the test dataset.</p>
+<p>Dataset: The U.S. EPA Southeast US 12km domain July 1-14, 2016 testing dataset is provided with the CMAQv5.3 Release. This dataset is distributed for benchmarking and testing the model installation. It is available from CMAS; please go to https://www.epa.gov/cmaq/cmaq-inputs-and-test-case-data for instructions on how to download the test dataset.</p>
 <p>Before making code changes, developers should test multiple compilers (if they have access to them; see the following section on <strong>Compiler Tests</strong>), multiple processor configurations, and single processor configuration runs for a single simulation day to verify their results match the previous stable release, and/or that their results are computationally and physically reasonable. After implementing their code changes, developers should repeat these tests and share the results as part of the pull request documentation.</p>
 <section id="compiler-tests">
 <h4>Compiler Tests<a class="headerlink" href="#compiler-tests" title="Link to this heading">#</a></h4>
@@ -501,7 +501,7 @@ In addition, we recommend utilizing <strong>1:1 Scatter Plots</strong> to demons
 <li><p>If the contribution is a new feature, developers are encouraged to publish its use in a peer-reviewed journal before submitting it to the CMAQ Public Repository.</p></li>
 </ul>
 <p><em>CMAQ Documentation Resources:</em><br />
-Documentation for CMAQv5.3 is available at <a class="github reference external" href="https://github.com/USEPA/CMAQ/tree/main/DOCS">USEPA/CMAQ</a>. Materials include:</p>
+Documentation for CMAQv5.3 is available at https://github.com/USEPA/CMAQ/tree/main/DOCS. Materials include:</p>
 <ul class="simple">
 <li><p>User Guide which describes code structure and regular operation of the model.</p></li>
 <li><p>Release Notes describing code improvements relevant for this model release.</p></li>
@@ -516,7 +516,7 @@ Documentation for CMAQv5.3 is available at <a class="github reference external" 
 </section>
 <section id="copyright-information">
 <h1>Copyright Information<a class="headerlink" href="#copyright-information" title="Link to this heading">#</a></h1>
-<p>Contact EPA (<a class="reference external" href="mailto:CMAQ_Team&#37;&#52;&#48;epa&#46;gov">CMAQ_Team<span>&#64;</span>epa<span>&#46;</span>gov</a>) with questions and concerns.</p>
+<p>Contact EPA (CMAQ_Team&#64;epa.gov) with questions and concerns.</p>
 <p>CMAQ Developer Guide (c) 2019</p>
 </section>
 <section id="appendix">

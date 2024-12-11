@@ -711,7 +711,7 @@ See <a class="reference internal" href="Appendix/CMAQ_UG_appendixF_elmo_output.h
 <h2>7.4 Diagnostic and Advanced CMAQ Output Files<a class="headerlink" href="#diagnostic-and-advanced-cmaq-output-files" title="Link to this heading">#</a></h2>
 <p>Along with the standard output files detailed in the previous section, CCTM can be configured to output several auxiliary files for diagnostic model purposes. Each option is controlled by its corresponding environment variable in the CCTM RunScript (e.g. run_cctm.csh). For logical values, TRUE/T is equivalent to Y and FALSE/F is equivalent to N.</p>
 <p>Note that I/O APIv3.2 supports up to MXFILE3=64 open files, each with up to MXVARS3=2048.  Turning on all of the diagnostic and advanced CMAQ output files can exceed this upper limit of open files, leading to a model crash. To avoid this issue, users may use I/O API version 3.2 “large” that increases MXFILE3 to 512 and MXVARS3 to 16384. This version is available as a zip file from the following address:</p>
-<p><a class="reference external" href="https://www.cmascenter.org/ioapi/download/ioapi-3.2-large.tar.gz">https://www.cmascenter.org/ioapi/download/ioapi-3.2-large.tar.gz</a></p>
+<p>https://www.cmascenter.org/ioapi/download/ioapi-3.2-large.tar.gz</p>
 <p>Installation instructions for I/O API v5.3-large are provided in README.txt in the .tar.gz file.</p>
 <p><a id=floor></a></p>
 <p><strong>FLOOR: concentration-reset diagnostics file</strong></p>
