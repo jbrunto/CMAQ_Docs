@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -39,9 +39,9 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=2709fde1"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e031e9a9"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Users_Guide/CMAQ_UG_ch05_running_a_simulation';</script>
@@ -384,16 +384,16 @@
 <p><a class="reference internal" href="CMAQ_UG_ch04_model_inputs.html"><span class="std std-doc">&lt;&lt; Previous Chapter</span></a> - <a class="reference internal" href="README.html"><span class="std std-doc">Home</span></a> - <a class="reference internal" href="CMAQ_UG_ch06_model_configuration_options.html"><span class="std std-doc">Next Chapter &gt;&gt;</span></a></p>
 <!-- END COMMENT -->
 <section id="running-a-cmaq-simulation">
-<h1>5. Running a CMAQ Simulation<a class="headerlink" href="#running-a-cmaq-simulation" title="Link to this heading">#</a></h1>
+<h1>5. Running a CMAQ Simulation<a class="headerlink" href="#running-a-cmaq-simulation" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
-<h2>5.1 Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2>5.1 Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>During this chapter the user will learn about how to obtain the CMAQ source codes and how to set-up their CMAQ environment to complete a CMAQ simulation. It should be noted that before you can configure your CMAQ Environment, consult the chapter “Preparing to run” to see you have the minimum requirement of hardware and software on your system.</p>
 </section>
 <section id="getting-the-cmaq-source-code">
-<h2>5.2 Getting the CMAQ Source Code<a class="headerlink" href="#getting-the-cmaq-source-code" title="Link to this heading">#</a></h2>
+<h2>5.2 Getting the CMAQ Source Code<a class="headerlink" href="#getting-the-cmaq-source-code" title="Permalink to this heading">#</a></h2>
 <p>CMAQ source code can be installed either using git or from tarballs downloaded from the git repository hosted by GitHub. Both options are described here.</p>
 <section id="git-installation">
-<h3>5.2.1 Git Installation<a class="headerlink" href="#git-installation" title="Link to this heading">#</a></h3>
+<h3>5.2.1 Git Installation<a class="headerlink" href="#git-installation" title="Permalink to this heading">#</a></h3>
 <p>In the directory where you would like to install CMAQ, issue the following command to clone the official EPA GitHub repository for CMAQv5.4:</p>
 <p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">-b</span> <span class="pre">main</span> <span class="pre">https://github.com/USEPA/CMAQ</span> <span class="pre">CMAQ_REPO</span></code></p>
 <p>Using the git clone option, CMAQ will install into the following directories:</p>
@@ -408,7 +408,7 @@
 </div>
 </section>
 <section id="zip-file-installation">
-<h3>5.2.2 Zip file Installation<a class="headerlink" href="#zip-file-installation" title="Link to this heading">#</a></h3>
+<h3>5.2.2 Zip file Installation<a class="headerlink" href="#zip-file-installation" title="Permalink to this heading">#</a></h3>
 <p>Zip files of the CMAQ source code are available from the public GitHub repository. Click the button “Clone or download” from https://github.com/USEPA/CMAQ and select “Download ZIP” to download a Zip file of the CMAQv5.3 repository. Alternatively, you may download the Zip file from the <a class="reference external" href="https://www.epa.gov/cmaq/access-cmaq-source-code">EPA CMAQ website</a>.</p>
 <p>Reference input/output data for testing the installation of the software are available from the CMAS Center; <em>data are not available through GitHub</em>. You must register/login to access the source codes and data from the CMAS Center.</p>
 <p>In the directory where you would like to install CMAQ, unzip the model distribution file:</p>
@@ -426,7 +426,7 @@
 </section>
 </section>
 <section id="the-cmaq-repository-structure">
-<h2>5.3 The CMAQ Repository Structure<a class="headerlink" href="#the-cmaq-repository-structure" title="Link to this heading">#</a></h2>
+<h2>5.3 The CMAQ Repository Structure<a class="headerlink" href="#the-cmaq-repository-structure" title="Permalink to this heading">#</a></h2>
 <p>After downloading the source codes the user is encouraged to look through the repository to familiarize themselves with the structure. A summarized image of the repository is shown below:</p>
 <p><a id=Figure5-1></a></p>
 <p><img alt="image" src="https://user-images.githubusercontent.com/47453034/193078832-ca2369c8-f86a-4b81-8dbb-3bfcfc711e09.png" /></p>
@@ -439,7 +439,7 @@
 <p>The last folder within the repository is the UTIL folder which contains useful utilities relating to the CMAQ program suite. An example is the bldmake utility which is used to compile the source code into executables when you use any of the build scripts in the CMAQ repository. Also included in this repository is a top-level README file with an overview of the contents of the release and two additional C-Shell scripts, <code class="docutils literal notranslate"><span class="pre">bldit_project.csh</span></code> and <code class="docutils literal notranslate"><span class="pre">config_cmaq.csh</span></code>.  <code class="docutils literal notranslate"><span class="pre">bldit_project.csh</span></code> allows the user to extract the build and run scripts and compile the model outside of the repository, while <code class="docutils literal notranslate"><span class="pre">config_cmaq.csh</span></code> helps enforce consistent environment setting for the CMAQ project. Both these scripts will be discussed in the following sections.</p>
 </section>
 <section id="building-cmaq-outside-of-the-repository-in-a-user-specified-directory">
-<h2>5.4 Building CMAQ Outside of the Repository in a User-Specified Directory<a class="headerlink" href="#building-cmaq-outside-of-the-repository-in-a-user-specified-directory" title="Link to this heading">#</a></h2>
+<h2>5.4 Building CMAQ Outside of the Repository in a User-Specified Directory<a class="headerlink" href="#building-cmaq-outside-of-the-repository-in-a-user-specified-directory" title="Permalink to this heading">#</a></h2>
 <p>When cloning the repository or unpacking the tar file of the CMAQ distribution, the top-level directory is recognized by the default build and run scripts as <code class="docutils literal notranslate"><span class="pre">CMAQ_HOME</span></code> (formerly M3HOME prior to CMAQv5.2). This directory is an arbitrary base location of the CMAQ installation on your Linux system for a specific application. If the user will build and run CMAQ within the repository folder structure, then <code class="docutils literal notranslate"><span class="pre">CMAQ_HOME</span></code> does not need to be set explicitly in the <code class="docutils literal notranslate"><span class="pre">bldit_project.csh</span></code> script. If, on the other hand, the user wishes to extract the build and run scripts and compile the model outside of the repository, then <code class="docutils literal notranslate"><span class="pre">CMAQ_HOME</span></code> will need to be specified in <code class="docutils literal notranslate"><span class="pre">bldit_project.csh</span></code>. Executing <code class="docutils literal notranslate"><span class="pre">bldit_project.csh</span></code> will automatically perform this extraction and create a CMAQ folder structure under the location now specified by <code class="docutils literal notranslate"><span class="pre">CMAQ_HOME</span></code>. To perform this operation, modify the variable <code class="docutils literal notranslate"><span class="pre">CMAQ_HOME</span></code> in the <code class="docutils literal notranslate"><span class="pre">bldit_project.csh</span> </code> script to identify the folder that you would like to install the CMAQ package under. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">CMAQ_HOME</span> <span class="o">=</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">username</span><span class="o">/</span><span class="n">CMAQ_v5</span><span class="mf">.4</span>
 </pre></div>
@@ -451,7 +451,7 @@
 <p>It should be noted that from now on, the other CMAQ directories are referenced relative to CMAQ_HOME and it is where your CMAQ project will be run from. While this directory structure is convenient for the benchmark case and most CMAQ applications, other configurations are possible.</p>
 </section>
 <section id="initialization-of-cmaq-environment">
-<h2>5.5 Initialization of CMAQ Environment<a class="headerlink" href="#initialization-of-cmaq-environment" title="Link to this heading">#</a></h2>
+<h2>5.5 Initialization of CMAQ Environment<a class="headerlink" href="#initialization-of-cmaq-environment" title="Permalink to this heading">#</a></h2>
 <p>Consistency of configuration variables is critical for building CMAQ itself, not just its libraries. Accordingly CMAQ includes the configuration script <code class="docutils literal notranslate"><span class="pre">config_cmaq.csh</span></code> to help enforce consistent environment settings for CMAQ and its associated libraries. <a class="reference internal" href="Appendix/CMAQ_UG_appendixA_model_options.html"><span class="std std-doc">Appendix A</span></a> lists the <code class="docutils literal notranslate"><span class="pre">config_cmaq.csh</span></code> variables defined for the build process and suggests values to which to set those variables.</p>
 <p>Note that for multiprocessor applications it is recommended that the Fortran MPI wrapper script mpiifort (for Intel compiler; for GNU and PGI fortran compiler, use mpifort) be specified for the Fortran compiler (myFC). Using this script, instead of a direct call to the Fortran compiler, will ensure that the full suite of MPI components (libraries and include files) for the compiler are included in the parallel build without anything provided by the user explicitly.</p>
 <p>Use the following steps to initialize your CMAQ environment:</p>
@@ -465,7 +465,7 @@
 <p>Sourcing the <code class="docutils literal notranslate"><span class="pre">config_cmaq.csh</span></code> script only needs to be invoked during a new installation of CMAQ to make sure the links to these libraries are working correctly. For every successive session, links to these libraries will automatically be created when you run any of the build or run scripts.</p>
 </section>
 <section id="compiling-cmaq-chemistry-transport-model-cctm">
-<h2>5.6 Compiling CMAQ Chemistry-Transport Model (CCTM)<a class="headerlink" href="#compiling-cmaq-chemistry-transport-model-cctm" title="Link to this heading">#</a></h2>
+<h2>5.6 Compiling CMAQ Chemistry-Transport Model (CCTM)<a class="headerlink" href="#compiling-cmaq-chemistry-transport-model-cctm" title="Permalink to this heading">#</a></h2>
 <p>After all required CMAQ inputs are generated using the preprocessors mentioned above the user is now ready to compile CCTM. CMAQ’s current coding structure is based on a modular design principle that seperates CCTM’s main driver, science modules, data estimation modules, and control/utility subroutines. Also distinguished from each other are the science models (including submodels for meteorology, emissions, chemistry-transport modeling) and the analysis and visualization subsystems.</p>
 <p>In CCTM, the process modules that affect the pollutant concentration fields are classified as listed below. Each bullet contains a description of the process followed by module name in parentheses. These modules are discussed further in <a class="reference internal" href="#CMAQ_UG_ch06_configuring_the_model.md"><span class="xref myst">Chapter 6</span></a>.</p>
 <p>Science Modules:</p>
@@ -501,14 +501,14 @@ source bldit_cctm.csh [compiler] [version] |&amp; tee build_cctm.log
 <p>The Make utility only compiles the modified files and all associated file which are defined by the dependency of each source file in the Makefile.</p>
 </section>
 <section id="running-cctm">
-<h2>5.7 Running CCTM<a class="headerlink" href="#running-cctm" title="Link to this heading">#</a></h2>
+<h2>5.7 Running CCTM<a class="headerlink" href="#running-cctm" title="Permalink to this heading">#</a></h2>
 <p>After setting up the CCTM executable the model is ready to be run. Much like the <code class="docutils literal notranslate"><span class="pre">bldit_cctm.csh</span></code> script, to modify any run time options edit the <code class="docutils literal notranslate"><span class="pre">run_cctm.csh</span></code> script referencing <a class="reference internal" href="Appendix/CMAQ_UG_appendixA_model_options.html"><span class="std std-doc">Appendix A</span></a> for a complete list of optional settings. After these settings have been configured use the following commands to run the script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $CMAQ_HOME/CCTM/scripts
 run_cctm.csh |&amp; tee run_cctm.log
 </pre></div>
 </div>
 <section id="cctm-logfiles">
-<h3>5.7.1 CCTM Logfiles<a class="headerlink" href="#cctm-logfiles" title="Link to this heading">#</a></h3>
+<h3>5.7.1 CCTM Logfiles<a class="headerlink" href="#cctm-logfiles" title="Permalink to this heading">#</a></h3>
 <p>The CCTM simulation will write two types of logfile, a main logfile (e.g. run_cctm.log) and processor-specific logfiles that have the name convention:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CTM_LOG_</span><span class="p">[</span><span class="n">ProcessorID</span><span class="p">]</span><span class="o">.</span><span class="n">v54_</span><span class="p">[</span><span class="n">compiler</span><span class="p">]</span><span class="n">_</span><span class="p">[</span><span class="n">data_name</span><span class="p">]</span><span class="o">/</span><span class="n">_</span><span class="p">[</span><span class="n">RUNDATE</span><span class="p">]</span><span class="o">.</span><span class="n">log</span>
 </pre></div>
@@ -769,7 +769,7 @@ run_cctm.csh |&amp; tee run_cctm.log
 </div>
 </section>
 <section id="cctm-output-files">
-<h3>5.7.2 CCTM Output files<a class="headerlink" href="#cctm-output-files" title="Link to this heading">#</a></h3>
+<h3>5.7.2 CCTM Output files<a class="headerlink" href="#cctm-output-files" title="Permalink to this heading">#</a></h3>
 <p>The output results will have been placed in the directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$CMAQ_DATA/output_CCTM_v54_[compiler]_[data_name]
 </pre></div>
@@ -777,7 +777,7 @@ run_cctm.csh |&amp; tee run_cctm.log
 <p>and can include the following netCDF-type files: ACONC, AELMO, B3GTS_S, CGRID, CONC, DEPV, DRYDEP, DUSTEMIS, LTNGDIAG1, LTNGDIAG2, MEDIA_CONC, ELMO, RJ_1, RJ_2, RJ_3, SOILOUT, SSEMIS, VDIFF, VSED, WETDEP1, WETDEP2 and VEXT_1. The in-depth description about each of these files is described in <a class="reference internal" href="CMAQ_UG_ch07_model_outputs.html"><span class="std std-doc">Chapter 7</span></a>.</p>
 </section>
 <section id="common-errors-causing-the-cctm-simulation-to-crash">
-<h3>5.7.3 Common errors causing the CCTM simulation to crash<a class="headerlink" href="#common-errors-causing-the-cctm-simulation-to-crash" title="Link to this heading">#</a></h3>
+<h3>5.7.3 Common errors causing the CCTM simulation to crash<a class="headerlink" href="#common-errors-causing-the-cctm-simulation-to-crash" title="Permalink to this heading">#</a></h3>
 <p>Common errors in a CCTM simulation include the following:</p>
 <ul class="simple">
 <li><p>Incorrect paths to input files. Look in the CCTM screen output (captured in your log file) for an Error message about an input file   not being found.</p></li>
@@ -787,7 +787,7 @@ run_cctm.csh |&amp; tee run_cctm.log
 </section>
 </section>
 <section id="cmaq-benchmark-test-case">
-<h2>5.8 CMAQ Benchmark Test Case<a class="headerlink" href="#cmaq-benchmark-test-case" title="Link to this heading">#</a></h2>
+<h2>5.8 CMAQ Benchmark Test Case<a class="headerlink" href="#cmaq-benchmark-test-case" title="Permalink to this heading">#</a></h2>
 <p>See the <a class="reference internal" href="Tutorials/CMAQ_UG_tutorial_benchmark.html"><span class="std std-doc">CMAQ Installation and Benchmarking Tutorial</span></a> for step-by-step instructions for running the 2 day benchmark case and links to reference input and output data.</p>
 <!-- BEGIN COMMENT -->
 <p><a class="reference internal" href="CMAQ_UG_ch04_model_inputs.html"><span class="std std-doc">&lt;&lt; Previous Chapter</span></a> - <a class="reference internal" href="README.html"><span class="std std-doc">Home</span></a> - <a class="reference internal" href="CMAQ_UG_ch06_model_configuration_options.html"><span class="std std-doc">Next Chapter &gt;&gt;</span></a><br>
@@ -888,7 +888,7 @@ CMAQ User’s Guide (c) 2022<br></p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
     <br/>
   </p>
 </div>

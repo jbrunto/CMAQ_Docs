@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -39,9 +39,9 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=2709fde1"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e031e9a9"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Users_Guide/CMAQ_UG_ch10_HDDM-3D';</script>
@@ -384,9 +384,9 @@
 <p><a class="reference internal" href="CMAQ_UG_ch09_process_analysis.html"><span class="std std-doc">&lt;&lt; Previous Chapter</span></a> - <a class="reference internal" href="README.html"><span class="std std-doc">Home</span></a> - <a class="reference internal" href="CMAQ_UG_ch11_ISAM.html"><span class="std std-doc">Next Chapter &gt;&gt;</span></a></p>
 <!-- END COMMENT -->
 <section id="decoupled-direct-method-in-three-dimensions-cmaq-ddm-3d">
-<h1>10. Decoupled Direct Method in Three Dimensions (CMAQ-DDM-3D)<a class="headerlink" href="#decoupled-direct-method-in-three-dimensions-cmaq-ddm-3d" title="Link to this heading">#</a></h1>
+<h1>10. Decoupled Direct Method in Three Dimensions (CMAQ-DDM-3D)<a class="headerlink" href="#decoupled-direct-method-in-three-dimensions-cmaq-ddm-3d" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
-<h2>10.1 Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2>10.1 Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>The Decoupled Direct Method in Three Dimensions (DDM-3D) provides CMAQ concentration and deposition sensitivity information for user specified model parameters.</p>
 <p>In air quality modeling, sensitivities measure the response of a model output to a change in one or several predefined model parameters. In policy applications, the parameters of interest are usually emissions and the output of interest is pollutant concentrations. We may be interested in emissions from a particular geographical region, like an urban area, a group of states, or a country, and/or emissions from a particular source, such as wildfires, electricity generating units (EGUs), or light duty diesel trucks.</p>
 <p>Emissions sensitivities can be calculated by simply running the air quality model twice – once with standard emissions inputs, and once with the emissions of interest adjusted in some way. The difference in outputs between the two runs in relation to the size of the adjustment then becomes the model sensitivity. While this process is fairly easy to implement and interpret, it quickly becomes computationally complex as the number of desired sensitivities increases. For example, calculating sensitivity to EGU emissions from 10 southeastern states in the U.S. would require 11 separate air quality model simulations.</p>
@@ -394,7 +394,7 @@
 <p>Besides emissions, sensitivities to other model parameters can also be calculated. Currently, CMAQ-DDM-3D can be used for sensitivity to emission rates, boundary conditions, initial conditions, reaction rates, potential vorticity, or any combination of these parameters. Second order sensitivity calculations, or sensitivity of sensitivity, sometimes known as higher-order DDM-3D (HDDM-3D) are also available.  Note: second order sensitivity output for particulate matter species are still in development.</p>
 </section>
 <section id="cmaq-ddm-3d-releases-and-build-instructions">
-<h2>10.2 CMAQ-DDM-3D Releases and Build Instructions<a class="headerlink" href="#cmaq-ddm-3d-releases-and-build-instructions" title="Link to this heading">#</a></h2>
+<h2>10.2 CMAQ-DDM-3D Releases and Build Instructions<a class="headerlink" href="#cmaq-ddm-3d-releases-and-build-instructions" title="Permalink to this heading">#</a></h2>
 <p>Starting from CMAQv5.4, DDM-3D has been fully integrated into the base model and is accessed through a flag in the standard build script.</p>
 <p>To use CMAQ-DDM-3D, follow the normal build process for CMAQ described in <a class="reference internal" href="CMAQ_UG_ch05_running_a_simulation.html"><span class="std std-doc">Chapter 5</span></a>, but make sure to uncomment the following line in bldit_cctm.csh:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="nb">set</span> <span class="n">DDM3D_CCTM</span>                        <span class="c1">#&gt; uncomment to compile CCTM with DD3D activated</span>
@@ -405,12 +405,12 @@
 </section>
 </section>
 <section id="cmaq-ddm-3d-run-instructions">
-<h1>10.3 CMAQ-DDM-3D Run Instructions<a class="headerlink" href="#cmaq-ddm-3d-run-instructions" title="Link to this heading">#</a></h1>
+<h1>10.3 CMAQ-DDM-3D Run Instructions<a class="headerlink" href="#cmaq-ddm-3d-run-instructions" title="Permalink to this heading">#</a></h1>
 <p>The included model run scripts each have a section that enables CMAQ-DDM-3D options. The DDM-3D configuration options shown in the table below. Additinally, a separate DDM-3D control input file is also required. Details on this file are included below.</p>
 <p>The CMAQ-DDM-3D benchmark simulation uses the same input data as the base model.</p>
 </section>
 <section id="ddm-run-script-settings">
-<h1>10.3.1 DDM run script settings<a class="headerlink" href="#ddm-run-script-settings" title="Link to this heading">#</a></h1>
+<h1>10.3.1 DDM run script settings<a class="headerlink" href="#ddm-run-script-settings" title="Permalink to this heading">#</a></h1>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Option</p></th>
@@ -452,7 +452,7 @@
 </div>
 </section>
 <section id="cmaq-ddm-3d-control-file-sen-input">
-<h1>10.3.2 CMAQ-DDM-3D Control File (SEN_INPUT)<a class="headerlink" href="#cmaq-ddm-3d-control-file-sen-input" title="Link to this heading">#</a></h1>
+<h1>10.3.2 CMAQ-DDM-3D Control File (SEN_INPUT)<a class="headerlink" href="#cmaq-ddm-3d-control-file-sen-input" title="Permalink to this heading">#</a></h1>
 <p>Users must define the DDM-3D sensitivity parameters in the DDM-3D Control File <code class="docutils literal notranslate"><span class="pre">SEN_INPUT</span></code> linked in the runscript.</p>
 <p>The DDM-3D Control File accommodates various types of sensitivity configuration parameters for CMAQ-DDM-3D simulations, including the tagging of multiple emission sources and/or species. As proper formatting of this file is required, users are referred to the sample control file provided with the release for formatting examples. Sample definitions of sensitivity parameters are shown below.</p>
 <p>Example 1
@@ -555,7 +555,7 @@ It is possible to calculate the sensitivity to ozone incursions at the top of th
 </table>
 </div>
 <section id="ddm-3d-control-file-format">
-<h2>10.3.2.1 DDM-3D Control File Format<a class="headerlink" href="#ddm-3d-control-file-format" title="Link to this heading">#</a></h2>
+<h2>10.3.2.1 DDM-3D Control File Format<a class="headerlink" href="#ddm-3d-control-file-format" title="Permalink to this heading">#</a></h2>
 <p>For each sensitivity:</p>
 <ol class="arabic simple">
 <li><p>(mandatory) The first line is the name of the sensitivity parameter; any 3-character name of the user’s choosing, no leading spaces</p></li>
@@ -594,7 +594,7 @@ It is possible to calculate the sensitivity to ozone incursions at the top of th
 </ul>
 </section>
 <section id="ddm-3d-input-output-files">
-<h2>10.4 DDM-3D Input/Output Files<a class="headerlink" href="#ddm-3d-input-output-files" title="Link to this heading">#</a></h2>
+<h2>10.4 DDM-3D Input/Output Files<a class="headerlink" href="#ddm-3d-input-output-files" title="Permalink to this heading">#</a></h2>
 <p>With the exception of the control file, CMAQ-DDM-3D requires the same input files as a normal CMAQ run.  Additional input files may be required depending on the choice of calculated sensitivity parameters.  The following table includes a list of all possible files specific to sensitivity calculations.</p>
 <p>Output Files Specific to DDM-3D Simulations</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -631,15 +631,15 @@ It is possible to calculate the sensitivity to ozone incursions at the top of th
 </div>
 </section>
 <section id="ddm-3d-benchmark-test-case">
-<h2>11.5 DDM-3D Benchmark Test Case<a class="headerlink" href="#ddm-3d-benchmark-test-case" title="Link to this heading">#</a></h2>
+<h2>11.5 DDM-3D Benchmark Test Case<a class="headerlink" href="#ddm-3d-benchmark-test-case" title="Permalink to this heading">#</a></h2>
 <p>See the <a class="reference internal" href="Tutorials/CMAQ_UG_tutorial_DDM3D.html"><span class="std std-doc">CMAQ-DDM-3D Benchmark Tutorial</span></a> for step-by-step instructions for running the 2 day benchmark case.  The input files for the CMAQv5.4 DDM-3D benchmark case are the same as the benchmark inputs for the base model. Output DDM files associated with the sample DDM control file <code class="docutils literal notranslate"><span class="pre">sensinput.2018_12NE3.dat</span></code> provided in this release package are included in the benchmark outputs for the base model.</p>
 </section>
 </section>
 <section id="summary">
-<h1>10.6 Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h1>
+<h1>10.6 Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>CMAQ-DDM-3D has proven to be a very effective tool for air quality studies.  This implementation in CMAQ has been done with the intent to provide flexibility and computational efficiency, and also maintain the base CMAQ code structure. CMAQ-DDM-3D has been found to accurately simulate sensitivity of ozone and PM species to initial conditions, boundary conditions, and emissions of precursor species. However, CMAQ-DDM-3D remains a work in progress with known shortcomings and its accuracy has not been tested for all conceivable applications. Any errors should be reported to the provided contacts.</p>
 <section id="references">
-<h2>10.6 References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<h2>10.6 References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <p>Cohan, D.S., &amp; Napelenok, S.L. (2011). Air Quality Response Modeling for Decision Support. Atmosphere, 2(3), 407-425. <a class="reference external" href="https://www.mdpi.com/2073-4433/2/3/407">doi: 10.3390/atmos2030407</a></p>
 <p>Napelenok, S.L., Cohan, D.S., Odman, M.T., &amp; Tonse, S. (2008). Extension and evaluation of sensitivity analysis capabilities in a photochemical model. Environmental Modelling &amp; Software, 23(8), 994-999. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1364815207002186">doi: 10.1016/j.envsoft.2007.11.004</a></p>
 <p>Napelenok, S.L., Cohan, D.S., Hu, Y.T., &amp; Russell, A.G. (2006). Decoupled direct 3D sensitivity analysis for particulate matter (DDM-3D/PM). Atmospheric Environment, 40(32), 6112-6121. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1352231006005012">doi: 10.1016/j.atmosenv.2006.05.039</a></p>
@@ -748,7 +748,7 @@ CMAQ User’s Guide (c) 2022<br></p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
     <br/>
   </p>
 </div>

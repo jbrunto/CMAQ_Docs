@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -39,9 +39,9 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=e031e9a9"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Users_Guide/Appendix/CMAQ_UG_appendixC_spatial_data';</script>
@@ -384,9 +384,9 @@
 <p><a class="reference internal" href="CMAQ_UG_appendixB_emissions_control.html"><span class="std std-doc">&lt;&lt; Previous Appendix</span></a> - <a class="reference internal" href="../README.html"><span class="std std-doc">Home</span></a> - <a class="reference internal" href="CMAQ_UG_appendixD_parallel_implementation.html"><span class="std std-doc">Next Appendix &gt;&gt;</span></a></p>
 <!-- END COMMENT -->
 <section id="appendix-c-processing-spatial-data-for-cmaq-inputs">
-<h1>Appendix C: Processing Spatial Data for CMAQ Inputs<a class="headerlink" href="#appendix-c-processing-spatial-data-for-cmaq-inputs" title="Link to this heading">#</a></h1>
+<h1>Appendix C: Processing Spatial Data for CMAQ Inputs<a class="headerlink" href="#appendix-c-processing-spatial-data-for-cmaq-inputs" title="Permalink to this heading">#</a></h1>
 <section id="c-1-geospatial-data">
-<h2>C.1 Geospatial Data<a class="headerlink" href="#c-1-geospatial-data" title="Link to this heading">#</a></h2>
+<h2>C.1 Geospatial Data<a class="headerlink" href="#c-1-geospatial-data" title="Permalink to this heading">#</a></h2>
 <p>Air quality modeling requires many spatial data to generate anthropogenic,
 biogenic, fire, sea salt, dust, and NH<sub>3</sub> emissions. In addition, land surface characteristics such as
 land cover types with vegetation leaf area index (LAI) and fraction, albedo, and soil types are required in
@@ -403,7 +403,7 @@ The following sections briefly describe the appropriate datum and projections to
 and the methods for generating the needed spatial data in the correct form.</p>
 </section>
 <section id="c-2-geodetic-datum">
-<h2>C.2 Geodetic datum<a class="headerlink" href="#c-2-geodetic-datum" title="Link to this heading">#</a></h2>
+<h2>C.2 Geodetic datum<a class="headerlink" href="#c-2-geodetic-datum" title="Permalink to this heading">#</a></h2>
 <p>A geodetic datum is a coordinate system used to define a location on the Earth.
 There are many datums used in spatial datasets depending on what geographic regions they are and
 how the Earth’s surface is approximated as a spheroid.  Most of U.S. geospatial data are defined in
@@ -416,7 +416,7 @@ slightly different from the WGS84 datum.  As a result, NAD83 can be used for Nor
 introducing spatial misalignment issues in the model datasets.</p>
 </section>
 <section id="c-3-spatial-data-projection">
-<h2>C.3 Spatial Data Projection<a class="headerlink" href="#c-3-spatial-data-projection" title="Link to this heading">#</a></h2>
+<h2>C.3 Spatial Data Projection<a class="headerlink" href="#c-3-spatial-data-projection" title="Permalink to this heading">#</a></h2>
 <p>CCTM can use any of the <a class="reference external" href="http://www2.mmm.ucar.edu/wrf/users/docs/user_guide_V3/users_guide_chap3.htm">four map projections defined for WRF.</a>
 The four map projection coordinate systems are regular latitude-longitude geographic, Lambert conformal conic, Mercator, and Polar
 stereographic. However, users should note that several of the PREP and POST tools that are part of the CMAQ system do not currently support the Mercator projection.  These include ICON, BCON, sitecmp, sitecmp_dailyo3, bldoverlay, hr2day and writesite.</p>
@@ -428,7 +428,7 @@ stereographic. However, users should note that several of the PREP and POST tool
 <p>Geographic:  “+proj=latlong +a=6370000.0 +b=6370000.0”</p>
 </section>
 <section id="c-4-spatial-data-generation">
-<h2>C.4 Spatial Data Generation<a class="headerlink" href="#c-4-spatial-data-generation" title="Link to this heading">#</a></h2>
+<h2>C.4 Spatial Data Generation<a class="headerlink" href="#c-4-spatial-data-generation" title="Permalink to this heading">#</a></h2>
 <p>Emission spatial allocation surrogates are required for generating anthropogenic emissions by SMOKE to
 spatially allocate county-based emission inventories to model grid cells. Emission surrogates can be based
 on population, roads, airports, railroads, and land use spatial data sets. The SA Vector and Surrogate
@@ -585,7 +585,7 @@ CMAQ User’s Guide (c) 2022<br></p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
     <br/>
   </p>
 </div>

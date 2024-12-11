@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -39,9 +39,9 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=2709fde1"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e031e9a9"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/CMAQ_UG_tutorial_WRF-CMAQ_Benchmark';</script>
@@ -381,7 +381,7 @@
                 <article class="bd-article">
                   
   <section id="wrf-cmaq-benchmarking-tutorial">
-<h1>WRF-CMAQ Benchmarking Tutorial<a class="headerlink" href="#wrf-cmaq-benchmarking-tutorial" title="Link to this heading">#</a></h1>
+<h1>WRF-CMAQ Benchmarking Tutorial<a class="headerlink" href="#wrf-cmaq-benchmarking-tutorial" title="Permalink to this heading">#</a></h1>
 <p><strong>Purpose</strong>: This guide describes how to install and run the WRF-CMAQ test case, which serves two different purposes. The first being to familiarize the user with the WRF-CMAQ suite of programs and how they work together, and secondly to verify the installation of the software on your system via benchmarking.</p>
 <p>Users are highly encouraged to work through the <a class="reference internal" href="#../CMAQ_UG_tutorial_benchmark.md"><span class="xref myst">CMAQ Benchmark Tutorial</span></a> and <a class="reference external" href="https://www2.mmm.ucar.edu/wrf/users/">WRF Installation Guide</a> to familiarize themselves with the individuals program components.</p>
 <p>The following support software are required for compiling and running WRF-CMAQ.</p>
@@ -402,14 +402,14 @@ https://github.com/USEPA/CMAQ/tree/main/DOCS/Users_Guide/Tutorials</strong></p>
 <li><p>400 GB hard drive storage</p></li>
 </ol>
 <section id="installing-wrf-cmaq">
-<h2>Installing WRF-CMAQ<a class="headerlink" href="#installing-wrf-cmaq" title="Link to this heading">#</a></h2>
+<h2>Installing WRF-CMAQ<a class="headerlink" href="#installing-wrf-cmaq" title="Permalink to this heading">#</a></h2>
 <p>In the directory where you would like to install WRF-CMAQ, create the directory issue the following command to clone the EPA GitHub repository for CMAQv5.4:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">-</span><span class="n">b</span> <span class="n">main</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">USEPA</span><span class="o">/</span><span class="n">CMAQ</span><span class="o">.</span><span class="n">git</span> <span class="n">CMAQ_REPO</span>
 </pre></div>
 </div>
 </section>
 <section id="check-out-a-new-branch-in-the-cmaq-repository">
-<h2>Check Out a new Branch in the CMAQ Repository<a class="headerlink" href="#check-out-a-new-branch-in-the-cmaq-repository" title="Link to this heading">#</a></h2>
+<h2>Check Out a new Branch in the CMAQ Repository<a class="headerlink" href="#check-out-a-new-branch-in-the-cmaq-repository" title="Permalink to this heading">#</a></h2>
 <p>Checking out a new branch is a good idea even if you are not doing code development, per se. It is likely that you will want to retrieve new updates in the future, and an easy way to do this is through the main branch in the git repo. Thus, it is beneficial to leave it unperturbed if possible.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">CMAQ_REPO</span>
 <span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">my_branch</span>
@@ -417,7 +417,7 @@ https://github.com/USEPA/CMAQ/tree/main/DOCS/Users_Guide/Tutorials</strong></p>
 </div>
 </section>
 <section id="building-and-running-in-a-user-specified-directory-outside-of-the-repository">
-<h2>Building and running in a user-specified directory outside of the repository<a class="headerlink" href="#building-and-running-in-a-user-specified-directory-outside-of-the-repository" title="Link to this heading">#</a></h2>
+<h2>Building and running in a user-specified directory outside of the repository<a class="headerlink" href="#building-and-running-in-a-user-specified-directory-outside-of-the-repository" title="Permalink to this heading">#</a></h2>
 <p>In the top level of CMAQ_REPO, the bldit_project.csh script will automatically replicate the CMAQ folder structure and copy every build and run script out of the repository so that you may modify them freely without version control.</p>
 <p>In bldit_project.csh, modify the variable $CMAQ_HOME to identify the folder that you would like to install the CMAQ package under. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">CMAQ_HOME</span> <span class="o">=</span> <span class="p">[</span><span class="n">your_install_path</span><span class="p">]</span><span class="o">/</span><span class="n">CMAQv5</span><span class="mf">.4</span>
@@ -430,7 +430,7 @@ https://github.com/USEPA/CMAQ/tree/main/DOCS/Users_Guide/Tutorials</strong></p>
 <p>CMAQ_HOME will be the location of your newly created WRF_CMAQ project directory (where you will compile and run WRF-CMAQ).</p>
 </section>
 <section id="configuring-the-wrf-cmaq-environment">
-<h2>Configuring the WRF-CMAQ Environment<a class="headerlink" href="#configuring-the-wrf-cmaq-environment" title="Link to this heading">#</a></h2>
+<h2>Configuring the WRF-CMAQ Environment<a class="headerlink" href="#configuring-the-wrf-cmaq-environment" title="Permalink to this heading">#</a></h2>
 <p>Compiling WRF-CMAQ requires several libraries and include files to be made avialable. Because these libraries and include files are not expected to be in standard locations, users need to explicitly provide the path to this via environmental variables.</p>
 <p>The environmental variables that need to be set are located in the config_cmaq.csh script, located at the root of the WRF-CMAQ project directory.</p>
 <p>Note: WRF source code expects that you have already collated the netCDF-C and netCDF-Fortran libraires into one directory. If you have done so, please follow the example instructions:</p>
@@ -487,10 +487,10 @@ Enter selection [1-75] : -------------------------------------------------------
 </ul>
 </section>
 <section id="compiling-wrf-cmaq">
-<h2>Compiling WRF-CMAQ<a class="headerlink" href="#compiling-wrf-cmaq" title="Link to this heading">#</a></h2>
+<h2>Compiling WRF-CMAQ<a class="headerlink" href="#compiling-wrf-cmaq" title="Permalink to this heading">#</a></h2>
 <p><em>Before proceeding, it should be noted that building the ICON and BCON executables are optional steps when working specifically with the benchmark data. This is because the initial condition and boundary condition files have been provided for you within the benchmark data set. For further information on these preprocessors please reference <a class="reference internal" href="#../CMAQ_UG_ch04_model_inputs.md"><span class="xref myst">Chapter 4</span></a>.</em></p>
 <section id="modify-the-bldit-cctm-csh">
-<h3>Modify the bldit_cctm.csh<a class="headerlink" href="#modify-the-bldit-cctm-csh" title="Link to this heading">#</a></h3>
+<h3>Modify the bldit_cctm.csh<a class="headerlink" href="#modify-the-bldit-cctm-csh" title="Permalink to this heading">#</a></h3>
 <p>Navigate to the WRF-CMAQ project directory and from there navigate to the CCTM/scripts directory.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">CCTM</span><span class="o">/</span><span class="n">scripts</span>
 </pre></div>
@@ -519,7 +519,7 @@ Enter selection [1-75] : -------------------------------------------------------
 <a class="reference internal" href="../Appendix/CMAQ_UG_appendixA_model_options.html"><span class="std std-doc">Appendix A</span></a>.</p>
 </section>
 <section id="run-the-bldit-cctm-csh-script">
-<h3>Run the bldit_cctm.csh script<a class="headerlink" href="#run-the-bldit-cctm-csh-script" title="Link to this heading">#</a></h3>
+<h3>Run the bldit_cctm.csh script<a class="headerlink" href="#run-the-bldit-cctm-csh-script" title="Permalink to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">bldit_cctm</span><span class="o">.</span><span class="n">csh</span> <span class="n">gcc</span> <span class="o">|&amp;</span> <span class="n">tee</span> <span class="n">bldit_cctm_twoway</span><span class="o">.</span><span class="n">log</span>
 </pre></div>
 </div>
@@ -538,7 +538,7 @@ Enter selection [1-75] : -------------------------------------------------------
 <p>If the User sees this, the WRF-CMAQ model has been successfully compiled and built. If not, the User should double check the library paths above and try again. If it still fails, please reach post on the <a class="reference external" href="https://forum.cmascenter.org/c/wrf-cmaq">CMAS Forum</a>.</p>
 </section>
 <section id="install-the-wrf-cmaq-reference-input-and-output-benchmark-data">
-<h3>Install the WRF-CMAQ reference input and output benchmark data<a class="headerlink" href="#install-the-wrf-cmaq-reference-input-and-output-benchmark-data" title="Link to this heading">#</a></h3>
+<h3>Install the WRF-CMAQ reference input and output benchmark data<a class="headerlink" href="#install-the-wrf-cmaq-reference-input-and-output-benchmark-data" title="Permalink to this heading">#</a></h3>
 <p>Download the CMAQ two day reference input and output data from the <a class="reference external" href="https://drive.google.com/drive/folders/1AFUB-4kzIXXoZr4hOHNBqRvy9JQ9_MDp?usp=sharing">CMAS Center Data Warehouse Google Drive</a> or from the <a class="reference external" href="https://cmas-cmaq.s3.amazonaws.com/index.html">CMAS Center Data Warehouse Amazon Web Services S3 Bucket</a>. The CMAQ benchmark test case is a two day simulation for July 1-2 2018 on a 100 column x 105 row x 35 layer 12-km resolution domain over the northeast U.S.</p>
 <ul class="simple">
 <li><p>Use the gdrive command to download the dataset.</p></li>
@@ -556,7 +556,7 @@ tar xvzf CMAQv5.4_2018_12NE3_Benchmark_2Day_Output.tar.gz
 </section>
 </section>
 <section id="running-the-wrf-cmaq-model">
-<h2>Running the WRF-CMAQ model<a class="headerlink" href="#running-the-wrf-cmaq-model" title="Link to this heading">#</a></h2>
+<h2>Running the WRF-CMAQ model<a class="headerlink" href="#running-the-wrf-cmaq-model" title="Permalink to this heading">#</a></h2>
 <p>Note, in this new coupled model design, the namelist is used to modify settings for WRF.
 Environment variables such as WRF_CMAQ_FREQ are no longer used.<br />
 The following commonly modified namelist options for WRF-CMAQ are specified in the run script.</p>
@@ -619,7 +619,7 @@ set NPROCS =    32
 </pre></div>
 </div>
 <section id="verify-that-the-run-was-successful">
-<h3>Verify that the run was successful<a class="headerlink" href="#verify-that-the-run-was-successful" title="Link to this heading">#</a></h3>
+<h3>Verify that the run was successful<a class="headerlink" href="#verify-that-the-run-was-successful" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>look for the output directory</p></li>
 </ul>
@@ -724,7 +724,7 @@ set NPROCS =    32
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
     <br/>
   </p>
 </div>

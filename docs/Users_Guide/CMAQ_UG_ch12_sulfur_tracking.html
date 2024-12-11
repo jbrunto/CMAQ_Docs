@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -39,9 +39,9 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=2709fde1"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e031e9a9"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Users_Guide/CMAQ_UG_ch12_sulfur_tracking';</script>
@@ -384,9 +384,9 @@
 <p><a class="reference internal" href="CMAQ_UG_ch11_ISAM.html"><span class="std std-doc">&lt;&lt; Previous Chapter</span></a> - <a class="reference internal" href="README.html"><span class="std std-doc">Home</span></a> - <a class="reference internal" href="CMAQ_UG_ch13_WRF-CMAQ.html"><span class="std std-doc">Next Chapter &gt;&gt;</span></a></p>
 <!-- END COMMENT -->
 <section id="sulfur-tracking-method">
-<h1>12. Sulfur Tracking Method<a class="headerlink" href="#sulfur-tracking-method" title="Link to this heading">#</a></h1>
+<h1>12. Sulfur Tracking Method<a class="headerlink" href="#sulfur-tracking-method" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
-<h2>12.1 Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2>12.1 Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>Starting with CMAQv5.3, a runtime diagnostic model option that provides detailed information on the modeled sulfur budget. This option, referred to as the “Sulfur Tracking Method (STM)”, tracks sulfate production from gas- and aqueous-phase chemical reactions, as well as contributions from emissions and initial and boundary conditions. Each tracked species is treated as other modeled species, undergoing transport (advection, diffusion, cloud-mixing) and removal by deposition (both wet and dry).  Several notable features in the CMAQv5.3 release of STM include:</p>
 <ul class="simple">
 <li><p>The STM is now a runtime option enabled by an environment variable.</p></li>
@@ -394,7 +394,7 @@
 </ul>
 </section>
 <section id="usage">
-<h2>12.2 Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
+<h2>12.2 Usage<a class="headerlink" href="#usage" title="Permalink to this heading">#</a></h2>
 <p>To activate the STM option, edit the CTM runscript and set the following environment variable to “Y” (the default is “N”):</p>
 <ul class="simple">
 <li><p>setenv STM_SO4TRACK Y</p></li>
@@ -641,7 +641,7 @@ CMAQ User’s Guide (c) 2022<br></p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
     <br/>
   </p>
 </div>
