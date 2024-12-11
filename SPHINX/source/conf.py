@@ -43,7 +43,7 @@ source_suffix = {
 }
 
 import pydata_sphinx_theme
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'alabaster'
 html_static_path = ['_static']
 #html_sidebars = {
 #        'index': ['searchbox.html'],
