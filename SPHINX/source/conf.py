@@ -18,16 +18,19 @@ release = '0.1'
 # These three objects provided with initial setup - 'myst_parser' added later
 extensions = [
         'myst_parser',
-        'sphinx.ext.autodoc',
+#        'sphinx.ext.autodoc',
         'sphinx.ext.autosectionlabel',
         'sphinx.ext.napoleon',
         'sphinx.ext.viewcode',
-        'sphinx.ext.githubpages',
+        'sphinx.ext.imgconverter',
+#        'sphinx.ext.githubpages',
 #        'sphinx_gallery.gen_gallery',
 #        'sphinx_panels'
-#        'sphinx_design'
+        'sphinx_design',
+        'sphinx_copybutton'
 ]
-myst_enable_extensions = ["colon_fence"]
+myst_enable_extensions = ["colon_fence", "linkify"]
+myst_heading_anchors = 1
 
 templates_path = ['_templates']
 exclude_patterns = []
@@ -40,7 +43,7 @@ source_suffix = {
 }
 
 import pydata_sphinx_theme
-html_theme = 'pydata_sphinx_theme'
+html_theme = 'alabaster'
 html_static_path = ['_static']
 html_sidebars = {
         'index': ['searchbox.html'],
