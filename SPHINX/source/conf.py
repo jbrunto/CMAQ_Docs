@@ -29,8 +29,8 @@ extensions = [
 #        'sphinx_design',
         'sphinx_copybutton'
 ]
-myst_enable_extensions = ["colon_fence", "linkify"]
-myst_heading_anchors = 1
+#myst_enable_extensions = ["colon_fence", "linkify"]
+#myst_heading_anchors = 1
 
 templates_path = ['_templates']
 exclude_patterns = []

@@ -414,7 +414,7 @@
 <ul class="simple">
 <li><p>Have PnetCDF installed and the underlying computing system should have parallel file system, e.g. Lustre or Beefs</p></li>
 <li><p>Have “set build_parallel_io” this line uncommented inside bldit_cctm.csh when you are ready to build CMAQ</p></li>
-<li><p>Have an appropriate version of IOAPI 3.2 installed (please contact David Wong at <a class="reference external" href="mailto:wong&#46;david-c&#37;&#52;&#48;epa&#46;gov">wong<span>&#46;</span>david-c<span>&#64;</span>epa<span>&#46;</span>gov</a> for additional information)</p></li>
+<li><p>Have an appropriate version of IOAPI 3.2 installed (please contact David Wong at wong.david-c&#64;epa.gov for additional information)</p></li>
 <li><p>Have “MPI:” prefix inserted in all output file In the run script, e.g. setenv S_CGRID “MPI: $OUTDIR/CCTM_CGRID_${CTM_APPL}.nc”</p></li>
 </ul>
 <p>Here are some example of CMAQ Parallel IO performance on various systems with different parallel file system. In each figure, rnetCDF denotes the I/O methodology current CMAQ is using, PnetCDF denotes the application of straight PnetCDF parallel I/O scheme, and PnetCDFcr denotes the new scheme we have developed based upon PnetCDF (reference below)</p>

@@ -391,7 +391,7 @@
 <li><p><a class="reference internal" href="CMAQ_UG_tutorial_benchmark.html"><span class="std std-doc">CMAQ Benchmark Tutorial</span></a></p></li>
 </ul>
 <p>If you encounter any errors, try running the model in debug mode and refer to the CMAS User Forum to determine if any issues have been reported.</p>
-<p><a class="reference external" href="https://forum.cmascenter.org/">https://forum.cmascenter.org/</a></p>
+<p>https://forum.cmascenter.org/</p>
 </section>
 <section id="step-2-read-the-user-guide-chapter-on-the-decoupled-direct-method-in-three-dimensions">
 <h2>Step 2: Read the User Guide Chapter on the Decoupled Direct Method in Three Dimensions<a class="headerlink" href="#step-2-read-the-user-guide-chapter-on-the-decoupled-direct-method-in-three-dimensions" title="Link to this heading">#</a></h2>
@@ -424,9 +424,9 @@
 <section id="step-4-optional-install-i-o-api-note-this-assumes-you-have-already-installed-netcdf-c-and-fortran-libraries">
 <h2>Step 4 (optional): Install I/O API (note, this assumes you have already installed netCDF C and Fortran Libraries)<a class="headerlink" href="#step-4-optional-install-i-o-api-note-this-assumes-you-have-already-installed-netcdf-c-and-fortran-libraries" title="Link to this heading">#</a></h2>
 <p>I/O APIv3.2 supports up to MXFILE3=256 open files, each with up to MXVARS3=2048. DDM-3D applications configured to calculate sensitivities to a large number of parameters may exceed this upper limit of model variables, leading to a model crash. To avoid this issue, users may use I/O API version 3.2 “large” that increases MXFILE3 to 512 and MXVARS3 to 16384. Instructions to build this version are found in Chapter 3. Note, using this ioapi-large version is <b>NOT REQUIRED</b> for the CMAQ-DDM Benchmark Case. If a user needs to use these larger setting for MXFILE3 and MXVAR3 to support their application, the memory requirements will be increased. If needed, this version is available as a zip file from the following address:</p>
-<p><a class="reference external" href="https://www.cmascenter.org/ioapi/download/ioapi-3.2-large-20200828.tar.gz">https://www.cmascenter.org/ioapi/download/ioapi-3.2-large-20200828.tar.gz</a></p>
+<p>https://www.cmascenter.org/ioapi/download/ioapi-3.2-large-20200828.tar.gz</p>
 <p>Otherwise, use the I/O API version available here:
-<a class="reference external" href="https://www.cmascenter.org/ioapi/download/ioapi-3.2-20200828.tar.gz">https://www.cmascenter.org/ioapi/download/ioapi-3.2-20200828.tar.gz</a></p>
+https://www.cmascenter.org/ioapi/download/ioapi-3.2-20200828.tar.gz</p>
 </section>
 <section id="step-5-install-cmaq-with-ddm-3d">
 <h2>Step 5: Install CMAQ with DDM-3D<a class="headerlink" href="#step-5-install-cmaq-with-ddm-3d" title="Link to this heading">#</a></h2>
